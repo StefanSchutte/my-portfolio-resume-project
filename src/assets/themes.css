@@ -1,0 +1,15 @@
+/* themes.css */
+:root {
+    --background-color: #d3e6d3;
+    --text-color: #000000;
+}
+
+.dark-mode {
+    --background-color: #000000;
+    --text-color: #ffffff;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
