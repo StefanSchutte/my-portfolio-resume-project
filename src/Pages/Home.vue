@@ -3,7 +3,7 @@
   <aside>
     <div class="img">
       <picture >
-        <img src="../../public/stefan.JPG" alt="img" width="70" height="100" >
+        <img src="/stefan.JPG" alt="img" width="70" height="100" >
       </picture>
     </div>
     <div>
