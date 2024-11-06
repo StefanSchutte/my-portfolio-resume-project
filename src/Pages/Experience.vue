@@ -119,7 +119,7 @@ const experiences = ref([
    * Array of experiences
    */
   {
-    date: "July 2024 - January 2024",
+    date: "July 2024 - January 2025",
     title: "Junior Software Developer",
     place: "Meshed Group",
     description: "- Worked as a junior/intern software developer for an accounting automation web app.\n" +
