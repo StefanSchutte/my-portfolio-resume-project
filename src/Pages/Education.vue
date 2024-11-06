@@ -10,6 +10,7 @@
         <p v-show="education.show">{{ education.grad }}</p>
         <p v-show="education.show">{{ education.date }}</p>
         <p v-show="education.show">{{ education.location }}</p>
+        <img v-if="education.show && education.certImg" :src="education.certImg" alt="Certificate Image" class="certificate-image"/>
       </li>
     </ul>
   </div>
@@ -20,15 +21,15 @@ import { ref } from 'vue';
 import AboutMeSection from "../Components/Nav/AboutMeSection.vue";
 
 const educations = ref([
-  { title: 'Software Development - C#/ OOP/ASP.NET MVC/MS SQL/ SQL Server.',grad:'Certificate', date: '2024', location: 'Bluelime Learning Solutions.', show: false },
-  { title: 'Software Development/Web Development.',grad:'Certificate', date: '2024', location: 'CodeSpace Academy.', show: false },
-  { title: 'HTML, CSS & JavaScript Certification Course for Beginners.',grad:'Certificate', date: '2023', location: 'Udemy.', show: false },
-  { title: 'Ultimate CSS Grid Course: From Beginner to Advanced.',grad:'Certificate', date: '2023', location: 'Udemy.', show: false },
-  { title: 'Automated Software Testing with Puppeteer.',grad:'Certificate', date: '2023', location: 'Udemy.', show: false },
-  { title: 'JAVASCRIPT WEB PROJECTS; 20 PROJECTS TO BUILD YOUR PORTFOLIO.',grad:'Certificate', date: '2023', location: 'Udemy.', show: false },
-  { title: 'MAKE MUSIC WITH CODE: COMPLETE GUIDE TO CODING WITH SONIC PI.',grad:'Certificate', date: '2023', location: 'Udemy.', show: false },
-  { title: 'THE COMPLETE JAVASCRIPT COURSE 2023: FROM ZERO TO EXPERT!',grad:'Certificate', date: '2022-2023', location: 'Udemy.', show: false },
-  { title: 'AUDIO ENGINEERING FUNDAMENTALS CERTIFICATE',grad:'Certificate', date: '2021', location: 'Udemy.', show: false },
+  { title: 'Software Development - C#/ OOP/ASP.NET MVC/MS SQL/ SQL Server.',grad:'Certificate', date: '2024', location: 'Bluelime Learning Solutions.', certImg: '/certImgblueline.jpg', show: false },
+  { title: 'Software Development/Web Development.',grad:'Certificate', date: '2024', location: 'CodeSpace Academy.', certImg: '/certImgCodeS.png', show: false },
+  { title: 'HTML, CSS & JavaScript Certification Course for Beginners.',grad:'Certificate', date: '2023', location: 'YouAccel Training', certImg: '/certImghtmlbeginer.jpeg', show: false },
+  { title: 'Ultimate CSS Grid Course: From Beginner to Advanced.',grad:'Certificate', date: '2023', location: 'Peter Sommerhoff', certImg: '/certImgCssGrid.jpeg', show: false },
+  { title: 'Automated Software Testing with Puppeteer.',grad:'Certificate', date: '2023', location: 'Kaniel Outis', certImg: '/certImgPuppeteer.jpeg', show: false },
+  { title: 'JAVASCRIPT WEB PROJECTS; 20 PROJECTS TO BUILD YOUR PORTFOLIO.',grad:'Certificate', date: '2023', location: 'Udemy.', certImg: '/certImg20projects.jpeg', show: false },
+  { title: 'MAKE MUSIC WITH CODE: COMPLETE GUIDE TO CODING WITH SONIC PI.',grad:'Certificate', date: '2023', location: 'Steve Lydford', certImg: '/certImgSonicPi.jpeg', show: false },
+  { title: 'THE COMPLETE JAVASCRIPT COURSE 2023: FROM ZERO TO EXPERT!',grad:'Certificate', date: '2022-2023', location: 'Zero to Master Academy', certImg: '/certImgJsBeginAdv.jpeg', show: false },
+  { title: 'AUDIO ENGINEERING FUNDAMENTALS CERTIFICATE',grad:'Certificate', date: '2021', location: 'Jonas Schmedtmann', show: false },
   { title: 'PADI OPEN WATER DIVER & PADI ADVANCED OPEN WATER DIVER',grad:'Certificate', date: '2019', location: 'Padi, Busan South Korea', show: false },
   { title: 'TEFL LEVEL 5 CERTIFICATE',grad:'Certificate', date: '2019', location: 'The TEFL Academy, England', show: false },
   { title: 'TEACHERS TRAINING COURSE CERTIFICATE',grad:'Certificate', date: '2018', location: 'Seoul, South Korea.', show: false },
@@ -74,6 +75,12 @@ const toggleParagraph = (index: any) => {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 50px;
   margin: 2rem;
+}
+
+.certificate-image {
+  width: 350px;
+  height: auto;
+  margin-top: 10px;
 }
 
 @media only screen and (max-width: 1000px) {

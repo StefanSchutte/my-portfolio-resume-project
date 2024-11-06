@@ -3,7 +3,7 @@
   <aside>
     <div class="img">
       <picture >
-        <img src="/stefan.JPG" alt="img" width="70" height="100" >
+        <img src="/stefan.jpeg" alt="img" width="70" height="100" >
       </picture>
     </div>
     <div>
@@ -45,7 +45,7 @@ aside {
   justify-content: space-between;
   height: 70vh;
   width: 100%;
-  background-image: url(/wp1828918.jpg);
+  background-image: url(/wp4009210-digital-wallpapers.jpg);
   filter: brightness(80%);
   background-position: center;
   background-size: cover;
@@ -62,7 +62,7 @@ header {
 
 /* Styles for the h1 element inside the header, setting color, font, and text effects */
 h1 {
-  color: #cfd9e6;
+  color: #fafafa;
   font-family: 'Press Start 2P', sans-serif;
   font-size: 3rem;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.2);
