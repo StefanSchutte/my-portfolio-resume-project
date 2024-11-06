@@ -20,6 +20,7 @@ import { ref } from 'vue';
 import AboutMeSection from "../Components/Nav/AboutMeSection.vue";
 
 const educations = ref([
+  { title: 'Software Development - C#/ OOP/ASP.NET MVC/MS SQL/ SQL Server.',grad:'Certificate', date: '2024', location: 'Bluelime Learning Solutions.', show: false },
   { title: 'Software Development/Web Development.',grad:'Certificate', date: '2024', location: 'CodeSpace Academy.', show: false },
   { title: 'HTML, CSS & JavaScript Certification Course for Beginners.',grad:'Certificate', date: '2023', location: 'Udemy.', show: false },
   { title: 'Ultimate CSS Grid Course: From Beginner to Advanced.',grad:'Certificate', date: '2023', location: 'Udemy.', show: false },

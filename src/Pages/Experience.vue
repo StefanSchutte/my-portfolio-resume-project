@@ -119,6 +119,17 @@ const experiences = ref([
    * Array of experiences
    */
   {
+    date: "July 2024 - January 2024",
+    title: "Junior Software Developer",
+    place: "Meshed Group",
+    description: "- Worked as a junior/intern software developer for an accounting automation web app.\n" +
+        "- I fixed issues/bugs that came in the form of tickets. \n" +
+        "- Built new features for the app.",
+    skills: "Skills: C#, JavaScript, ASP.NET MVC, MS SQL",
+    show: false
+  },
+
+  {
     date: "June 2021 - July 2023",
     title: "Teacher",
     place: "Talking Club Academy",
