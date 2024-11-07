@@ -7,6 +7,7 @@
     <li><i class="devicon-tailwindcss-original colored"></i><p>tailwindcss</p></li>
     <li><i class="devicon-javascript-plain colored"></i><p>JavaScript</p></li>
     <li><i class="devicon-typescript-plain colored"></i><p>TypeScript</p></li>
+    <li><i class="devicon-csharp-plain colored"></i><p>C#</p></li>
     <li><i class="devicon-react-original colored"></i><p>React</p></li>
     <li><i class="devicon-reactrouter-plain colored"></i><p>reactrouter</p></li>
     <li><i class="devicon-vuejs-plain colored"></i><p>Vue</p></li>
@@ -16,8 +17,10 @@
     <li><i class="devicon-figma-plain colored"></i><p>Figma/Figjam</p></li>
     <li><i class="devicon-vscode-plain colored"></i><p>Visual Studio Code</p></li>
     <li><i class="devicon-webstorm-plain colored"></i><p>Webstorm</p></li>
+    <li><i class="devicon-rider-plain colored"></i><p>Rider</p></li>
     <li><i class="devicon-powershell-plain colored"></i><p>Powershell</p></li>
     <li><i class="devicon-netlify-plain colored"></i><p>Netlify</p></li>
+    <li><i class="devicon-microsoftsqlserver-plain colored"></i><p>MS SQL</p></li>
   </ul>
 </template>
 
@@ -64,7 +67,11 @@ i {
 
   .skills-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  i {
+    font-size: 1.5rem;
   }
 }
 
@@ -73,8 +80,7 @@ i {
 
   .skills-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   }
 }
-
 </style>

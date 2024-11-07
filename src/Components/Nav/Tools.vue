@@ -41,6 +41,13 @@
   width: 24px;
   height: 24px;
 }
+
+/* Hide the about-sub-nav-bar when the screen width is less than 550px */
+@media only screen and (max-width: 550px) {
+  .about-sub-nav-bar {
+    display: none;
+  }
+}
 </style>
 <script setup lang="ts">
 </script>

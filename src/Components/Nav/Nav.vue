@@ -58,6 +58,7 @@ nav ul img {
   margin: 1rem;
   text-align: center;
   max-width: calc(100vw / 4);
+  padding: 2px;
 }
 
 /* Ensures images in navigation items fit correctly */
@@ -113,6 +114,7 @@ p {
     max-width: none;
     margin: 0.3rem;
     font-size: small;
+    padding: 0px;
   }
 
   /* Ensure images do not overflow. Maintain aspect ratio */

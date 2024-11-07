@@ -98,5 +98,9 @@ const toggleParagraph = (index: any) => {
     grid-template-columns: 1fr;
     gap: 20px;
   }
+
+  .certificate-image {
+    width: 220px;
+  }
 }
 </style>

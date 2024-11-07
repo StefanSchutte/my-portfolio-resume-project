@@ -108,7 +108,7 @@ h1 {
 /* Styles the contact detail section to display items in a grid layout */
 .contactDetailSection {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   justify-content: center;
   align-items: center;
 }
@@ -125,7 +125,7 @@ h1 {
   box-sizing: border-box;
   border: 2px solid gray;
   margin: 1rem;
-  height: 25vh;
+  height: 18vh;
 }
 
 /* Styles the inner container for contact details */
@@ -168,11 +168,11 @@ span {
   font-size: medium;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1100px) {
 
   .contactDetailSection {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     align-items: center;
     gap: 0.4rem;
@@ -184,15 +184,33 @@ span {
     box-sizing: border-box;
     border: 2px solid gray;
     margin: 0.5rem;
-    width: 90vw;
-    height: 20vh;
+    width: 40vw;
+    height: 12vh;
   }
 
   p {
     font-size: small;
   }
 }
+@media only screen and (max-width: 550px) {
 
+.contactDetailSection {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.contact {
+  width: 90vw;
+  height: 20vh;
+}
+
+p {
+  font-size: small;
+}
+}
 </style>
 <script setup lang="ts">
 </script>

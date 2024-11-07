@@ -63,8 +63,10 @@ header {
 /* Styles for the h1 element inside the header, setting color, font, and text effects */
 h1 {
   color: #fafafa;
-  font-family: 'Press Start 2P', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 3rem;
+  font-optical-sizing: auto;
+  font-weight: 900;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.2);
   letter-spacing: 1px;
   text-align: center;
