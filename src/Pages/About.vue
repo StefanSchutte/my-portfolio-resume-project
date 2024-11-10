@@ -8,7 +8,9 @@
       coupled with practical skills honed at CodeSpace Academy and Udemy courses, positions me as a versatile individual ready to make
       a meaningful impact in the dynamic field of software development."</p>
 
-    <p>I am looking for a position where I can learn on the job. I completed my Software Development course at CodeSpace Academy.
+    <p>I am currently working as a Software Developer at Meshed360, where I’m expanding my skills in a real-world development environment. This experience has strengthened my understanding of development practices and allowed me to build my knowledge of C#, ASP.NET, and MS SQL in practical settings. I am eager to continue growing and to contribute meaningfully to any project or team.</p>
+
+    <p>I completed my Software Development course at CodeSpace Academy.
       I have also completed many courses on Udemy and plan to continue expanding my knowledge through learning and practical application.
       My studies have prepared me to be able to learn rapidly and I am committed to learning new technologies and programming languages.
       Languages that I have learned about includes: HTML, CSS, JavaScript and JS frameworks.</p>
@@ -18,6 +20,7 @@
     <p>I am ready for a challenge and eager to prove myself. I am seeking experience in the software development industry and believe that I would be an asset to any business because I am willing to go above and beyond. I believe life is about experiences, and I want to gain as much as possible while learning everything I can. I strongly feel that my work becomes the center of my life, and therefore, I am looking for a challenge that will allow me to define myself within it.</p>
 
   </div>
+  <DownloadResume/>
 </template>
 
 <style>
@@ -44,6 +47,7 @@
 <script setup lang="ts">
 import AboutMeSection from "../Components/Nav/AboutMeSection.vue";
 import { onMounted } from 'vue';
+import DownloadResume from "../Components/Utils/DownloadResume.vue";
 
 /**
  * Wraps each word in the provided element with a span element.

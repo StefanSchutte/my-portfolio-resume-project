@@ -123,8 +123,9 @@ const experiences = ref([
     title: "Junior Software Developer",
     place: "Meshed Group",
     description: "- Worked as a junior/intern software developer for an accounting automation web app.\n" +
-        "- I fixed issues/bugs that came in the form of tickets. \n" +
-        "- Built new features for the app.",
+        "- Developed and maintained software features for the Meshed 360 platform, focusing on backend enhancements and front-end improvements. \n" +
+        "- Conducted software maintenance and troubleshooting on Meshed 360 modules. \n" +
+        "- Performed testing, debugging, and performance tuning to ensure software reliability and efficiency. ",
     skills: "Skills: C#, JavaScript, ASP.NET MVC, MS SQL",
     show: false
   },

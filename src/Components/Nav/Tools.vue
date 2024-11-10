@@ -1,5 +1,5 @@
 <template>
-  <div class="about-sub-nav-bar">
+  <div class="tools-sub-nav-bar">
     <router-link class="nav-item" to="/tools/kanban">
       <img src="/dashboard.png" alt="Kanban" title="Kanban" />Kanban Board
     </router-link>
@@ -18,7 +18,7 @@
 </template>
 
 <style>
-.about-sub-nav-bar {
+.tools-sub-nav-bar {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,12 +42,12 @@
   height: 24px;
 }
 
-/*!* Hide the about-sub-nav-bar when the screen width is less than 550px *!
+/* Hide the about-sub-nav-bar when the screen width is less than 550px */
 @media only screen and (max-width: 550px) {
-  .about-sub-nav-bar {
+  .tools-sub-nav-bar {
     display: none;
   }
-}*/
+}
 </style>
 <script setup lang="ts">
 </script>
