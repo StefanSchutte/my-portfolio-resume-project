@@ -12,7 +12,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #242424;
+  background-color: #3a3a3a;
   padding: 1rem;
   font-family: "Oswald", sans-serif;
 }

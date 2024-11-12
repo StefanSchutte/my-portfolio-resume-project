@@ -20,7 +20,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #2e2e2e;
+  background-color: #494949;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   font-family: "Oswald", sans-serif;
