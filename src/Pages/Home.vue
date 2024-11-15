@@ -1,9 +1,18 @@
 <template>
   <div>
-  <aside>
+    <div v-if="isLoading" class="loader-overlay">
+      <div class="loader"></div>
+    </div>
+  <aside v-show="!isLoading">
     <div class="img" @click="openModal">
       <picture >
-        <img src="/stefan.jpeg" alt="img" width="70" height="100" >
+        <img
+            src="/stefan.jpeg"
+            alt="img"
+            width="70"
+            height="100"
+            @load="checkAsideAssetsLoaded('profileImg')"
+        >
       </picture>
     </div>
     <div>
@@ -45,6 +54,11 @@ export default defineComponent({
           '/stefan.jpeg',
           '/IMG-6869.JPG',
         ],
+        isLoading: true,
+        assetsLoaded: {
+          profileImg: false,
+          backgroundImg: false,
+        },
       };
     },
     methods: {
@@ -60,7 +74,25 @@ export default defineComponent({
       closeModal() {
         this.isModalOpen = false;
       },
+      checkAsideAssetsLoaded(asset) {
+        this.assetsLoaded[asset] = true;
+
+        // Check if both profileImg and backgroundImg are loaded
+        if (this.assetsLoaded.profileImg && this.assetsLoaded.backgroundImg) {
+          this.isLoading = false;
+        }
+      },
+      preloadBackgroundImage() {
+        const img = new Image();
+        img.src = '/wp4009210-digital-wallpapers.jpg';
+        img.onload = () => {
+          this.checkAsideAssetsLoaded('backgroundImg');
+        };
+      },
     },
+  mounted() {
+    this.preloadBackgroundImage();
+  },
 });
 
 
@@ -207,4 +239,39 @@ header p {
     padding: 1px;
   }
 }
+
+/* Loader overlay */
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+}
+
+/* Loader animation */
+.loader {
+  border: 8px solid #8f8c8c;
+  border-top: 8px solid #075c07;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+/* Keyframe for spinning loader */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 </style>
