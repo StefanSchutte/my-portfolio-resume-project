@@ -1,7 +1,7 @@
 <template>
   <div>
   <aside>
-    <div class="img">
+    <div class="img" @click="openModal">
       <picture >
         <img src="/stefan.jpeg" alt="img" width="70" height="100" >
       </picture>
@@ -11,9 +11,12 @@
         <h1>Stefan Schutte</h1>
       </header>
     </div>
-
   </aside>
-
+    <PhotoModal
+        :isOpen="isModalOpen"
+        :photos="photoGallery"
+        @close="closeModal"
+    />
   <Foot />
   </div>
 </template>
@@ -22,6 +25,7 @@
 import Foot from '../Components/Contact/Foot.vue'
 import {defineComponent} from "vue";
 import ThemeToggle from "../Components/Utils/ThemeToggle.vue";
+import PhotoModal from '../Components/Utils/PhotoModal.vue';
 
 /**
  * Hero section with a dimmed background image.
@@ -31,8 +35,35 @@ import ThemeToggle from "../Components/Utils/ThemeToggle.vue";
  * @component
  */
 export default defineComponent({
-  components: {ThemeToggle, Foot}
-})
+  components: {ThemeToggle, Foot, PhotoModal},
+    data() {
+      return {
+        isModalOpen: false,
+        photoGallery: [
+          '/img1.jpg',
+          '/IMG-9965.JPG',
+          '/stefan.jpeg',
+          '/IMG-6869.JPG',
+        ],
+      };
+    },
+    methods: {
+      /**
+       * Opens the photo modal by setting isModalOpen to true.
+       */
+      openModal() {
+        this.isModalOpen = true;
+      },
+      /**
+       * Closes the photo modal by setting isModalOpen to false.
+       */
+      closeModal() {
+        this.isModalOpen = false;
+      },
+    },
+});
+
+
 
 </script>
 <style scoped>
@@ -88,7 +119,14 @@ header p {
   display: flex;
   align-items: flex-start;
   animation: imgSlide 2s ease forwards;
+  cursor: pointer;
 }
+
+.img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
 
 /* Keyframes for the imgSlide animation */
 @keyframes imgSlide {
@@ -105,6 +143,7 @@ header p {
   width: 100%;
   height: 100%;
 }
+
 
 /* Responsive styles for screens 1000px wide or less */
 @media only screen and (max-width: 1000px) {
