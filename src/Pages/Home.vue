@@ -1,8 +1,10 @@
 <template>
   <div>
-    <div v-if="isLoading" class="loader-overlay">
+<!--    <div v-if="isLoading" class="loader-overlay">
       <div class="loader"></div>
-    </div>
+    </div>-->
+    <Loader :show="isLoading" />
+
   <aside v-show="!isLoading">
     <div class="img" @click="openModal">
       <picture >
@@ -35,7 +37,7 @@ import Foot from '../Components/Contact/Foot.vue'
 import {defineComponent} from "vue";
 import ThemeToggle from "../Components/Utils/ThemeToggle.vue";
 import PhotoModal from '../Components/Utils/PhotoModal.vue';
-
+import Loader from "../Components/Utils/Loader.vue";
 /**
  * Hero section with a dimmed background image.
  * It includes a profile picture, a header with the name "Stefan Schutte", and a footer component.
@@ -44,7 +46,7 @@ import PhotoModal from '../Components/Utils/PhotoModal.vue';
  * @component
  */
 export default defineComponent({
-  components: {ThemeToggle, Foot, PhotoModal},
+  components: {ThemeToggle, Foot, PhotoModal, Loader},
     data() {
       return {
         isModalOpen: false,
@@ -241,7 +243,7 @@ header p {
 }
 
 /* Loader overlay */
-.loader-overlay {
+/*.loader-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -254,7 +256,7 @@ header p {
   z-index: 9999;
 }
 
-/* Loader animation */
+!* Loader animation *!
 .loader {
   border: 8px solid #8f8c8c;
   border-top: 8px solid #075c07;
@@ -264,7 +266,7 @@ header p {
   animation: spin 1s linear infinite;
 }
 
-/* Keyframe for spinning loader */
+!* Keyframe for spinning loader *!
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -272,6 +274,6 @@ header p {
   100% {
     transform: rotate(360deg);
   }
-}
+}*/
 
 </style>

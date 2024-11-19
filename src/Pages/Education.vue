@@ -1,6 +1,6 @@
 <template>
   <AboutMeSection/>
-  <div>
+  <div class="education-container">
     <h2 id="education">EDUCATION</h2>
     <ul class="education">
       <li v-for="(education, index) in educations" :key="index">
@@ -10,7 +10,17 @@
         <p v-show="education.show">{{ education.grad }}</p>
         <p v-show="education.show">{{ education.date }}</p>
         <p v-show="education.show">{{ education.location }}</p>
-        <img v-if="education.show && education.certImg" :src="education.certImg" alt="Certificate Image" class="certificate-image"/>
+        <a
+            v-if="education.show && education.certImg"
+            :href="education.website"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+        <img
+             :src="education.certImg"
+             alt="Certificate Image"
+             class="certificate-image"/>
+        </a>
       </li>
     </ul>
   </div>
@@ -21,16 +31,96 @@ import { ref } from 'vue';
 import AboutMeSection from "../Components/Nav/AboutMeSection.vue";
 
 const educations = ref([
-  { title: 'The Complete ASP.NET MVC 5 Course.',grad:'Certificate', date: '2024', location: 'Code With Mosh', certImg: '/certImgMosh.jpeg', show: false },
-  { title: 'Software Development - C#/ OOP/ASP.NET MVC/MS SQL/ SQL Server.',grad:'Certificate', date: '2024', location: 'Bluelime Learning Solutions.', certImg: '/certImgblueline.jpg', show: false },
-  { title: 'Software Development/Web Development.',grad:'Certificate', date: '2024', location: 'CodeSpace Academy.', certImg: '/certImgCodeS.png', show: false },
-  { title: 'HTML, CSS & JavaScript Certification Course for Beginners.',grad:'Certificate', date: '2023', location: 'YouAccel Training', certImg: '/certImghtmlbeginer.jpeg', show: false },
-  { title: 'Ultimate CSS Grid Course: From Beginner to Advanced.',grad:'Certificate', date: '2023', location: 'Peter Sommerhoff', certImg: '/certImgCssGrid.jpeg', show: false },
-  { title: 'Automated Software Testing with Puppeteer.',grad:'Certificate', date: '2023', location: 'Kaniel Outis', certImg: '/certImgPuppeteer.jpeg', show: false },
-  { title: 'JAVASCRIPT WEB PROJECTS; 20 PROJECTS TO BUILD YOUR PORTFOLIO.',grad:'Certificate', date: '2023', location: 'Zero to Master Academy', certImg: '/certImg20projects.jpeg', show: false },
-  { title: 'MAKE MUSIC WITH CODE: COMPLETE GUIDE TO CODING WITH SONIC PI.',grad:'Certificate', date: '2023', location: 'Steve Lydford', certImg: '/certImgSonicPi.jpeg', show: false },
-  { title: 'THE COMPLETE JAVASCRIPT COURSE 2023: FROM ZERO TO EXPERT!',grad:'Certificate', date: '2022-2023', location: 'Jonas Schmedtmann', certImg: '/certImgJsBeginAdv.jpeg', show: false },
-  { title: 'AUDIO ENGINEERING FUNDAMENTALS CERTIFICATE',grad:'Certificate', date: '2021', location: 'Marco Galvan',certImg: '/certImgaudio.jpg', show: false },
+  {
+    title: 'The Complete ASP.NET MVC 5 Course.',
+    grad:'Certificate',
+    date: '2024',
+    location: 'Code With Mosh',
+    certImg: '/certImgMosh.jpeg',
+    website:'https://www.udemy.com/course/the-complete-aspnet-mvc-5-course/',
+    show: false
+  },
+  {
+    title: 'Software Development - C#/ OOP/ASP.NET MVC/MS SQL/ SQL Server.',
+    grad:'Certificate',
+    date: '2024',
+    location: 'Bluelime Learning Solutions.',
+    certImg: '/certImgblueline.jpg',
+    website:'https://www.udemy.com/course/software-developer-coopaspnet-mvcms-sqlsql-server/',
+    show: false
+  },
+  {
+    title: 'Software Development/Web Development.',
+    grad:'Certificate',
+    date: '2024',
+    location: 'CodeSpace Academy.',
+    certImg: '/certImgCodeS.png',
+    website:'https://www.codespace.co.za/programs/software-development/',
+    show: false
+  },
+  {
+    title: 'HTML, CSS & JavaScript Certification Course for Beginners.',
+    grad:'Certificate',
+    date: '2023',
+    location: 'YouAccel Training',
+    certImg: '/certImghtmlbeginer.jpeg',
+    website:'https://www.udemy.com/course/html-css-javascript-certification-course-for-beginners/',
+    show: false
+  },
+  {
+    title: 'Ultimate CSS Grid Course: From Beginner to Advanced.',
+    grad:'Certificate',
+    date: '2023',
+    location: 'Peter Sommerhoff',
+    certImg: '/certImgCssGrid.jpeg',
+    website:'https://www.udemy.com/course/css-grid/',
+    show: false
+  },
+  {
+    title: 'Automated Software Testing with Puppeteer.',
+    grad:'Certificate',
+    date: '2023',
+    location: 'Kaniel Outis',
+    certImg: '/certImgPuppeteer.jpeg',
+    website:'https://www.udemy.com/course/automated-headless-browser-testing-with-puppeteer/',
+    show: false
+  },
+  {
+    title: 'JAVASCRIPT WEB PROJECTS; 20 PROJECTS TO BUILD YOUR PORTFOLIO.',
+    grad:'Certificate',
+    date: '2023',
+    location: 'Zero to Master Academy',
+    certImg: '/certImg20projects.jpeg',
+    website:'https://www.udemy.com/course/javascript-web-projects-to-build-your-portfolio-resume/',
+    show: false
+  },
+  {
+    title: 'MAKE MUSIC WITH CODE: COMPLETE GUIDE TO CODING WITH SONIC PI.',
+    grad:'Certificate',
+    date: '2023',
+    location: 'Steve Lydford',
+    certImg: '/certImgSonicPi.jpeg',
+    website:'https://www.udemy.com/course/make-music-with-code/',
+    show: false
+  },
+  {
+    title: 'THE COMPLETE JAVASCRIPT COURSE 2023: FROM ZERO TO EXPERT!',
+    grad:'Certificate',
+    date: '2022-2023',
+    location: 'Jonas Schmedtmann',
+    certImg: '/certImgJsBeginAdv.jpeg',
+    website:'https://www.udemy.com/course/the-complete-javascript-course/',
+    show: false
+  },
+  {
+    title: 'AUDIO ENGINEERING FUNDAMENTALS CERTIFICATE',
+    grad:'Certificate',
+    date: '2021',
+    location: 'Marco Galvan',
+    certImg: '/certImgaudio.jpg',
+    website:'https://www.udemy.com/course/audio-engineering-fundamentals/',
+    show: false
+  },
   { title: 'PADI OPEN WATER DIVER & PADI ADVANCED OPEN WATER DIVER',grad:'Certificate', date: '2019', location: 'Padi, Busan South Korea', show: false },
   { title: 'TEFL LEVEL 5 CERTIFICATE',grad:'Certificate', date: '2019', location: 'The TEFL Academy, England', show: false },
   { title: 'TEACHERS TRAINING COURSE CERTIFICATE',grad:'Certificate', date: '2018', location: 'Seoul, South Korea.', show: false },
@@ -76,6 +166,10 @@ const toggleParagraph = (index: any) => {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 50px;
   margin: 2rem;
+}
+
+.education-container {
+  margin-left: -2rem;
 }
 
 .certificate-image {

@@ -1,38 +1,75 @@
 <template>
   <AboutMeSection/>
-  <h2 id="skills">SKILLS</h2>
-  <ul class="skills-grid">
-    <li><i class="devicon-html5-plain colored"></i><p>HTML</p></li>
-    <li><i class="devicon-css3-plain colored"></i><p>CSS</p></li>
-    <li><i class="devicon-tailwindcss-original colored"></i><p>tailwindcss</p></li>
-    <li><i class="devicon-javascript-plain colored"></i><p>JavaScript</p></li>
-    <li><i class="devicon-typescript-plain colored"></i><p>TypeScript</p></li>
-    <li><i class="devicon-csharp-plain colored"></i><p>C#</p></li>
-    <li><i class="devicon-react-original colored"></i><p>React</p></li>
-    <li><i class="devicon-reactrouter-plain colored"></i><p>reactrouter</p></li>
-    <li><i class="devicon-vuejs-plain colored"></i><p>Vue</p></li>
-    <li><i class="devicon-react-original"></i><p>create react app</p></li>
-    <li><i class="devicon-vite-original colored"></i><p>Vite</p></li>
-    <li><i class="devicon-github-original colored"></i><p>Github</p></li>
-    <li><i class="devicon-figma-plain colored"></i><p>Figma/Figjam</p></li>
-    <li><i class="devicon-vscode-plain colored"></i><p>Visual Studio Code</p></li>
-    <li><i class="devicon-webstorm-plain colored"></i><p>Webstorm</p></li>
-    <li><i class="devicon-rider-plain colored"></i><p>Rider</p></li>
-    <li><i class="devicon-powershell-plain colored"></i><p>Powershell</p></li>
-    <li><i class="devicon-netlify-plain colored"></i><p>Netlify</p></li>
-    <li><i class="devicon-microsoftsqlserver-plain colored"></i><p>MS SQL</p></li>
+<div class="skills-container">
+  <Loader :show="isLoading" />
+
+  <h2 id="skills" v-show="!isLoading">SKILLS</h2>
+  <ul class="skills-grid" v-show="!isLoading">
+    <li v-for="skill in skills" :key="skill.name">
+      <i :class="skill.icon"></i>
+      <p>{{ skill.name }}</p>
+    </li>
   </ul>
+</div>
 </template>
 
 <script setup lang="ts">
-/**
- * Importing the AboutMeSection component
- */
 import AboutMeSection from "../Components/Nav/AboutMeSection.vue";
-/**
- * Importing the devicon CSS for skill icons
- */
 import 'devicon/devicon.min.css';
+import Loader from "../Components/Utils/Loader.vue";
+import { ref, onMounted, nextTick } from "vue";
+
+const isLoading = ref(true);
+
+const skills = [
+  { icon: "devicon-html5-plain colored", name: "HTML" },
+  { icon: "devicon-css3-plain colored", name: "CSS" },
+  { icon: "devicon-tailwindcss-original colored", name: "tailwindcss" },
+  { icon: "devicon-javascript-plain colored", name: "JavaScript" },
+  { icon: "devicon-typescript-plain colored", name: "TypeScript" },
+  { icon: "devicon-csharp-plain colored", name: "C#" },
+  { icon: "devicon-react-original colored", name: "React" },
+  { icon: "devicon-reactrouter-plain colored", name: "reactrouter" },
+  { icon: "devicon-vuejs-plain colored", name: "Vue" },
+  { icon: "devicon-react-original", name: "create react app" },
+  { icon: "devicon-vite-original colored", name: "Vite" },
+  { icon: "devicon-github-original colored", name: "Github" },
+  { icon: "devicon-figma-plain colored", name: "Figma/Figjam" },
+  { icon: "devicon-vscode-plain colored", name: "Visual Studio Code" },
+  { icon: "devicon-webstorm-plain colored", name: "Webstorm" },
+  { icon: "devicon-rider-plain colored", name: "Rider" },
+  { icon: "devicon-powershell-plain colored", name: "Powershell" },
+  { icon: "devicon-netlify-plain colored", name: "Netlify" },
+  { icon: "devicon-microsoftsqlserver-plain colored", name: "MS SQL" },
+];
+
+onMounted(async () => {
+
+  isLoading.value = true;
+  await nextTick();
+  await document.fonts.ready;
+  const allIcons = document.querySelectorAll(".skills-grid i");
+  await Promise.all(
+      Array.from(allIcons).map(
+          (icon) =>
+              new Promise<void>((resolve) => {
+                const timeout = setTimeout(resolve, 5000); // Failsafe timeout (5 seconds)
+                const checkRendered = () => {
+                  const iconRect = icon.getBoundingClientRect();
+                  if (iconRect.width > 0 && iconRect.height > 0) {
+                    clearTimeout(timeout);
+                    resolve();
+                  } else {
+                    requestAnimationFrame(checkRendered);
+                  }
+                };
+                checkRendered();
+              })
+      )
+  );
+
+  isLoading.value = false;
+});
 </script>
 
 <style>
@@ -44,6 +81,10 @@ import 'devicon/devicon.min.css';
   display: flex;
   justify-content: center;
   padding: 3%;
+}
+
+.skills-container {
+  margin-left: -3rem;
 }
 
 /* Styles the unordered list. Removes the default list style. Centers the text. */

@@ -1,12 +1,13 @@
 <template>
   <div>
     <Tools/>
-    <h2 id="projects">PROJECTS</h2>
-    <div class="carousel-container">
+    <Loader :show="isLoading" />
+    <h2 id="projects" v-show="!isLoading">PROJECTS</h2>
+    <div class="carousel-container" v-show="!isLoading">
       <div class="carousel">
         <div class="project-card" v-for="(project, index) in projects" :key="index">
           <h4>{{ project.title }}</h4>
-          <img :src="project.image" :alt="project.title" @click="showOverlay(index)"/>
+          <img :src="project.image" :alt="project.title" @click="showOverlay(index)" @load="onImageLoad"/>
         </div>
       </div>
     <button @click="prevSlide" class="carousel-control prev">&#10094;</button>
@@ -40,6 +41,9 @@
 
 import { ref, onMounted } from 'vue';
 import Tools from "../Components/Nav/Tools.vue";
+import Loader from "../Components/Utils/Loader.vue";
+
+const isLoading = ref(true);
 
 /** @type {import('vue').Ref<Project[]>} */
 const projects = ref([
@@ -96,7 +100,14 @@ const projects = ref([
 
 let currentIndex = 0;
 const isOverlayVisible = ref(false);
+let loadedImages = 0;
 
+const onImageLoad = () => {
+  loadedImages++;
+  if (loadedImages === projects.value.length) {
+    isLoading.value = false;
+  }
+};
 /**
  * Moves the carousel to the previous slide.
  */
