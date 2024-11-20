@@ -86,7 +86,7 @@ export default defineComponent({
       },
       preloadBackgroundImage() {
         const img = new Image();
-        img.src = '/wp4009210-digital-wallpapers.jpg';
+        img.src = 'IMG-9965.JPG';
         img.onload = () => {
           this.checkAsideAssetsLoaded('backgroundImg');
         };
@@ -110,7 +110,8 @@ aside {
   justify-content: space-between;
   height: 70vh;
   width: 100%;
-  background-image: url(/wp4009210-digital-wallpapers.jpg);
+  /*background-image: url(/wp4009210-digital-wallpapers.jpg);*/
+  background-image: url(/IMG-9965.JPG);
   filter: brightness(80%);
   background-position: center;
   background-size: cover;

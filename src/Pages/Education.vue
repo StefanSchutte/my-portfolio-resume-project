@@ -121,11 +121,47 @@ const educations = ref([
     website:'https://www.udemy.com/course/audio-engineering-fundamentals/',
     show: false
   },
-  { title: 'PADI OPEN WATER DIVER & PADI ADVANCED OPEN WATER DIVER',grad:'Certificate', date: '2019', location: 'Padi, Busan South Korea', show: false },
-  { title: 'TEFL LEVEL 5 CERTIFICATE',grad:'Certificate', date: '2019', location: 'The TEFL Academy, England', show: false },
-  { title: 'TEACHERS TRAINING COURSE CERTIFICATE',grad:'Certificate', date: '2018', location: 'Seoul, South Korea.', show: false },
-  { title: 'B.A. COMMUNICATION SCIENCE (MEDIA STUDIES AND JOURNALISM)',grad:'B.A. Communication Studies Degree', date: '2012 - 2015', location: 'University of the Free State', show: false },
-  { title: 'National Senior Certificate',grad:'Certificate', date: '2011', location: 'Uniondale High School, South Africa', show: false },
+  {
+    title: 'PADI OPEN WATER DIVER & PADI ADVANCED OPEN WATER DIVER',
+    grad:'Certificate',
+    date: '2019',
+    location: 'Padi, Busan South Korea',
+    certImg: '/certImgPadi.png',
+    website:'https://store.padi.com/en-uk/courses/advanced-open-water/p/60463-1B2C/',
+    show: false },
+  {
+    title: 'TEFL LEVEL 5 CERTIFICATE',
+    grad:'Certificate',
+    date: '2019',
+    location: 'The TEFL Academy, England',
+    certImg: '/certImgTefl.png',
+    website:'https://www.theteflacademy.com/za/online-tefl-course/level-5/',
+    show: false
+  },
+  {
+    title: 'TEACHERS TRAINING COURSE CERTIFICATE',
+    grad:'Certificate',
+    date: '2018',
+    location: 'Seoul, South Korea.',
+    certImg: '/certImgTeach.png',
+    website:'http://www.talkingclub.co.kr/default.aspx',
+    show: false },
+  {
+    title: 'B.A. COMMUNICATION SCIENCE (MEDIA STUDIES AND JOURNALISM)',
+    grad:'B.A. Communication Studies Degree',
+    date: '2012 - 2015',
+    location: 'University of the Free State',
+    certImg: '/certImgUni.png',
+    website:'https://www.ufs.ac.za/humanities/departments-and-divisions/communication-science-home',
+    show: false },
+  {
+    title: 'National Senior Certificate',
+    grad:'Certificate',
+    date: '2011',
+    location: 'Uniondale High School, South Africa',
+    certImg: '/certImgSchool.png',
+    show: false
+  },
 ]);
 
 const toggleParagraph = (index: any) => {
