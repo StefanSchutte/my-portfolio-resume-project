@@ -1,9 +1,8 @@
 <template>
   <AboutMeSection/>
-<div class="skills-container">
   <Loader :show="isLoading" />
-
   <h2 id="skills" v-show="!isLoading">SKILLS</h2>
+  <div class="skills-container">
   <ul class="skills-grid" v-show="!isLoading">
     <li v-for="skill in skills" :key="skill.name">
       <i :class="skill.icon"></i>

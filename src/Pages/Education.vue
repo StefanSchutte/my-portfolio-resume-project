@@ -1,7 +1,7 @@
 <template>
   <AboutMeSection/>
+  <h2 id="education">EDUCATION</h2>
   <div class="education-container">
-    <h2 id="education">EDUCATION</h2>
     <ul class="education">
       <li v-for="(education, index) in educations" :key="index">
         <h3 class="educationHeading" @click="toggleParagraph(index)">
