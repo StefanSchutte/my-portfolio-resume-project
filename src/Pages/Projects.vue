@@ -70,13 +70,6 @@ const isCarouselView = ref(true);
 /** @type {import('vue').Ref<Project[]>} */
 const projects = ref([
   {
-    title: 'Unsplash Infinite Scroll',
-    image: 'https://github.com/StefanSchutte/Unsplash_API_Infinite_Scroll_/assets/127427422/2f872c97-f886-4167-bd4a-79d02a770b1e',
-    githubLink: 'https://github.com/StefanSchutte/Unsplash_API_Infinite_Scroll_',
-    netlifyLink: 'https://stefan-unsplash-api-infinite-scroll.netlify.app/',
-    description: 'Continuously loads new images as the user scrolls down the page, providing an endless stream of random pictures from Unsplash..'
-  },
-  {
     title: 'Podcast App',
     image: 'podcastimg.png',
     githubLink: 'https://github.com/StefanSchutte/STESCH302_FTO2308_GroupA2_Stefan-Schutte_DWACapstone',
@@ -89,6 +82,13 @@ const projects = ref([
     githubLink: 'https://github.com/StefanSchutte/STESCH302_FTO2308_GroupB2_Stefan_Schutte_IWACapstone',
     netlifyLink: 'https://bookconnect-app-js.netlify.app/',
     description: 'Interactive Web App where I applied JavaScript to achieve required functionality.'
+  },
+  {
+    title: 'My Digital Resume',
+    image: 'Capture.png',
+    githubLink: 'https://github.com/StefanSchutte/STESCH302_FTO2308_GroupC_Stefan-Schutte_ITW_Final_Digital_Resume',
+    netlifyLink: 'https://stefanschutte-digital-resume.netlify.app/',
+    description: 'My Digital Resume created using HTML and CSS.'
   },
   {
     title: 'Mapty App',
@@ -105,6 +105,13 @@ const projects = ref([
     description: 'This project is a minimalist banking website called Bankist. It is a static website created using HTML, CSS, and JavaScript. The website showcases various sections, including features, operations, testimonials, and a sign-up section.'
   },
   {
+    title: 'Unsplash Infinite Scroll',
+    image: 'https://github.com/StefanSchutte/Unsplash_API_Infinite_Scroll_/assets/127427422/2f872c97-f886-4167-bd4a-79d02a770b1e',
+    githubLink: 'https://github.com/StefanSchutte/Unsplash_API_Infinite_Scroll_',
+    netlifyLink: 'https://stefan-unsplash-api-infinite-scroll.netlify.app/',
+    description: 'Continuously loads new images as the user scrolls down the page, providing an endless stream of random pictures from Unsplash.'
+  },
+  {
     title: 'Bookmark App',
     image: 'Capture5.png',
     githubLink: 'https://github.com/StefanSchutte/Bookkeeper_Application',
@@ -117,13 +124,6 @@ const projects = ref([
     githubLink: 'https://github.com/StefanSchutte/Paint_Clone',
     netlifyLink: 'https://paint-clone-stefan.netlify.app/',
     description: 'A simple web-based painting application that allows users to draw, erase, change brush sizes, and manipulate colors. The application provides features such as saving and loading the canvas from local storage, clearing the canvas, and downloading the created artwork as an image file.'
-  },
-  {
-    title: 'My Digital Resume',
-    image: 'Capture.png',
-    githubLink: 'https://github.com/StefanSchutte/STESCH302_FTO2308_GroupC_Stefan-Schutte_ITW_Final_Digital_Resume',
-    netlifyLink: 'https://stefanschutte-digital-resume.netlify.app/',
-    description: 'My Digital Resume created using HTML and CSS.'
   },
   {
     title: 'Rock Paper Scissors Lizard Spock',
@@ -159,6 +159,20 @@ const projects = ref([
     githubLink: 'https://github.com/StefanSchutte/Joke_Teller',
     netlifyLink: 'https://joke-teller-stefan.netlify.app/',
     description: 'Joke Teller is a web application that fetches jokes from an API and converts them into voice using the VoiceRSS JavaScript SDK.'
+  },
+  {
+    title: 'Pong Game',
+    image: 'https://github.com/StefanSchutte/---template-pong/assets/127427422/3ca7c6df-6808-47b3-98ec-33745dc89eed',
+    githubLink: 'https://github.com/StefanSchutte/Stefan-s_pong_game',
+    netlifyLink: 'https://stefan-pong-game.netlify.app/',
+    description: 'Pong is a two-dimensional sports game that simulates table tennis.'
+  },
+  {
+    title: 'My Website',
+    image: 'https://media.licdn.com/dms/image/v2/D4D2DAQGb81XhoRQnpg/profile-treasury-image-shrink_1920_1920/profile-treasury-image-shrink_1920_1920/0/1714999100679?e=1732910400&v=beta&t=CkdbJkOlBWJNeZ6Yvk1iuD4qN1UFB41EZa9eC24pz0Q',
+    githubLink: 'https://github.com/StefanSchutte/my-portfolio-resume-project',
+    netlifyLink: 'https://my-website-stefan-schutte.netlify.app',
+    description: 'This website is designed to provide visitors with a comprehensive overview of my background, skills, and projects. Whether you\'re an employer, colleague, or simply interested in learning more about me, this site offers valuable insights into my professional journey and achievements.'
   },
 ]);
 

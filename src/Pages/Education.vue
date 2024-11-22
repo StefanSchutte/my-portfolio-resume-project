@@ -7,8 +7,7 @@
         <h3 class="educationHeading" @click="toggleParagraph(index)">
           {{ education.title }}
         </h3>
-        <p v-show="education.show">{{ education.grad }}</p>
-        <p v-show="education.show">{{ education.date }}</p>
+        <p v-show="education.show">{{ education.grad }} - {{ education.date }}</p>
         <p v-show="education.show">{{ education.location }}</p>
         <a
             v-if="education.show && education.certImg"
@@ -51,7 +50,7 @@ const educations = ref([
   },
   {
     title: 'Software Development/Web Development.',
-    grad:'Certificate',
+    grad:'Bootcamp Certificate',
     date: '2024',
     location: 'CodeSpace Academy.',
     certImg: '/certImgCodeS.png',
