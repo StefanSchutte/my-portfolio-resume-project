@@ -106,7 +106,7 @@ const projects = ref([
   },
   {
     title: 'Unsplash Infinite Scroll',
-    image: 'https://github.com/StefanSchutte/Unsplash_API_Infinite_Scroll_/assets/127427422/2f872c97-f886-4167-bd4a-79d02a770b1e',
+    image: 'projects-unsplash.png',
     githubLink: 'https://github.com/StefanSchutte/Unsplash_API_Infinite_Scroll_',
     netlifyLink: 'https://stefan-unsplash-api-infinite-scroll.netlify.app/',
     description: 'Continuously loads new images as the user scrolls down the page, providing an endless stream of random pictures from Unsplash.'
@@ -127,49 +127,49 @@ const projects = ref([
   },
   {
     title: 'Rock Paper Scissors Lizard Spock',
-    image: 'https://github.com/StefanSchutte/Rock_Paper_Scissors_Lizard_Spock_Game/assets/127427422/55ef27d6-e798-4772-b2d5-2727786b8c9d',
+    image: 'projects-rock-spock.png',
     githubLink: 'https://github.com/StefanSchutte/Rock_Paper_Scissors_Lizard_Spock_Game',
     netlifyLink: 'https://spock-rock-game-stefan.netlify.app/',
     description: 'This web application allows users to play the popular "Rock Paper Scissors Lizard Spock" game against the computer.'
   },
   {
     title: 'Kanban Board - Drag and Drop',
-    image: 'https://github.com/StefanSchutte/Kanban_Board/assets/127427422/a5eba737-4d29-4221-b5fc-c0eacd1983b2',
+    image: 'projects-kanban.png',
     githubLink: 'https://github.com/StefanSchutte/Kanban_Board',
     netlifyLink: 'https://kanban-board-drag-n-drop.netlify.app/',
     description: 'This project is a simple Kanban Board implemented using HTML, CSS, and JavaScript, featuring drag-and-drop functionality for managing tasks across different stages.'
   },
   {
     title: 'NASA API Pictures',
-    image: 'https://github.com/StefanSchutte/NASA_API_Pictures_/assets/127427422/e0d8cdb4-dae5-492e-bf1a-28cc7859e9b3',
+    image: 'projects-nasa.png',
     githubLink: 'https://github.com/StefanSchutte/NASA_API_Pictures_',
     netlifyLink: 'https://nasa-api-pictures-apod.netlify.app/',
     description: 'This web application utilizes the NASA API to showcase a curated collection of astronomy-related images, including the NASA Picture of the Day.'
   },
   {
     title: 'Quote Generator',
-    image: 'https://github.com/StefanSchutte/quote-generator/assets/127427422/5badc51f-d947-4267-a463-438a007f7f9a',
+    image: 'projects-quote.png',
     githubLink: 'https://github.com/StefanSchutte/quote-generator',
     netlifyLink: 'https://stefans-quote-generator.netlify.app/',
     description: 'This quote generator app is a simple web application designed to display and share random quotes.'
   },
   {
     title: 'Joke Teller',
-    image: 'https://github.com/StefanSchutte/Joke_Teller/assets/127427422/12f7703f-ed6a-48b4-b904-c3e4ac8cb3fe',
+    image: 'projects-joke.png',
     githubLink: 'https://github.com/StefanSchutte/Joke_Teller',
     netlifyLink: 'https://joke-teller-stefan.netlify.app/',
     description: 'Joke Teller is a web application that fetches jokes from an API and converts them into voice using the VoiceRSS JavaScript SDK.'
   },
   {
     title: 'Pong Game',
-    image: 'https://github.com/StefanSchutte/---template-pong/assets/127427422/3ca7c6df-6808-47b3-98ec-33745dc89eed',
+    image: 'projects-pong.png',
     githubLink: 'https://github.com/StefanSchutte/Stefan-s_pong_game',
     netlifyLink: 'https://stefan-pong-game.netlify.app/',
     description: 'Pong is a two-dimensional sports game that simulates table tennis.'
   },
   {
     title: 'My Website',
-    image: 'https://media.licdn.com/dms/image/v2/D4D2DAQGb81XhoRQnpg/profile-treasury-image-shrink_1920_1920/profile-treasury-image-shrink_1920_1920/0/1714999100679?e=1732910400&v=beta&t=CkdbJkOlBWJNeZ6Yvk1iuD4qN1UFB41EZa9eC24pz0Q',
+    image: 'projects-web.png',
     githubLink: 'https://github.com/StefanSchutte/my-portfolio-resume-project',
     netlifyLink: 'https://my-website-stefan-schutte.netlify.app',
     description: 'This website is designed to provide visitors with a comprehensive overview of my background, skills, and projects. Whether you\'re an employer, colleague, or simply interested in learning more about me, this site offers valuable insights into my professional journey and achievements.'

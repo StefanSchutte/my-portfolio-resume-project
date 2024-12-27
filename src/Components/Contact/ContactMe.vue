@@ -108,7 +108,7 @@ h1 {
 /* Styles the contact detail section to display items in a grid layout */
 .contactDetailSection {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   justify-content: center;
   align-items: center;
 }
