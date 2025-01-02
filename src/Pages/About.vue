@@ -1,7 +1,11 @@
 <template>
   <AboutMeSection />
-
-  <h2 class="about">ABOUT</h2>
+  <div class="header-section">
+    <h2 class="about">ABOUT</h2>
+    <div class="button-wrapper">
+      <DownloadResume />
+    </div>
+  </div>
   <div class="about_info">
     <p>"As an enthusiastic and dedicated entry-level Software Developer, I bring a unique blend of academic excellence,
       diverse professional experiences, and a relentless commitment to continuous learning. My foundation in Communication Science,
@@ -20,15 +24,31 @@
     <p>I am ready for a challenge and eager to prove myself. I am seeking experience in the software development industry and believe that I would be an asset to any business because I am willing to go above and beyond. I believe life is about experiences, and I want to gain as much as possible while learning everything I can. I strongly feel that my work becomes the center of my life, and therefore, I am looking for a challenge that will allow me to define myself within it.</p>
 
   </div>
-  <DownloadResume/>
 </template>
 
 <style>
+
+.header-section {
+  position: relative;
+  padding: 3%;
+}
+
 .about {
   font-family: "Oswald", sans-serif;
   font-size: 5vh;
   display: flex;
   justify-content: center;
+}
+
+.button-wrapper {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.button-wrapper :deep(.download-button-container) {
+  margin-bottom: 0;
 }
 
 .about_info {
@@ -42,6 +62,17 @@
   background-color: #bfa719;
   transition: background-color 0.3s ease;
 }
+
+@media only screen and (max-width: 768px) {
+  .button-wrapper {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    transform: none;
+  }
+}
+
 </style>
 
 <script setup lang="ts">

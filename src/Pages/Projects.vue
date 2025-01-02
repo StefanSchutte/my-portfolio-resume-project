@@ -2,11 +2,13 @@
   <div>
     <Tools />
     <Loader :show="isLoading" />
-    <div class="header-container">
+    <div class="header-section">
       <h2 id="projects">PROJECTS</h2>
-      <button @click="toggleView" class="toggle-view-btn">
-        {{ isCarouselView ? "Switch to List View" : "Switch to Carousel View" }}
-      </button>
+      <div class="view-toggle">
+        <button @click="toggleView" class="toggle-view-btn">
+          {{ isCarouselView ? "Switch to List View" : "Switch to Carousel View" }}
+        </button>
+      </div>
     </div>
 
     <div v-show="isCarouselView && !isLoading" class="carousel-container">
@@ -43,7 +45,7 @@
           <a :href="projects[currentIndex].githubLink" target="_blank">Code</a>
           <a :href="projects[currentIndex].netlifyLink" target="_blank">Deployed Site</a>
         </div>
-        <button @click="hideOverlay">Close</button>
+        <button @click="hideOverlay">X</button>
       </div>
     </div>
   </div>
@@ -318,12 +320,24 @@ h4 {
   color: #333;
 }
 
+.header-section {
+  position: relative;
+  padding: 3%;
+}
+
 #projects {
   font-family: "Oswald", sans-serif;
   font-size: 5vh;
   display: flex;
   justify-content: center;
-  padding: 3%;
+
+}
+
+.view-toggle {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 /* Styles for project links */
@@ -470,6 +484,16 @@ h4 {
   .list-details {
     text-align: left;
     margin-top: 0.5rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .view-toggle {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    transform: none;
   }
 }
 

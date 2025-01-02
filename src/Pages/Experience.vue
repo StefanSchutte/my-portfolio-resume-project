@@ -1,9 +1,20 @@
-
 <template>
   <AboutMeSection/>
   <div>
-    <h2 id="experience">EXPERIENCE</h2>
-    <div class="experience_info">
+    <div class="header-section">
+      <h2 id="experience">EXPERIENCE</h2>
+      <div class="view-toggle">
+        <button
+            @click="toggleView"
+            class="toggle-view-btn"
+        >
+          {{ isGridView ? "Switch to List View" : "Switch to Grid View" }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Grid View -->
+    <div v-if="isGridView" class="experience_info">
       <div v-for="(experience, index) in experiences" :key="index">
         <div class="experienceHeadingContainer">
           <h3 class="experienceHeading" @click="toggleParagraph(index)">
@@ -18,101 +29,29 @@
         </p>
       </div>
     </div>
+
+    <!-- List View -->
+    <div v-else class="list-view">
+      <div class="list-item" v-for="(experience, index) in experiences" :key="index">
+        <div class="list-content">
+          <h3>{{ experience.title }}</h3>
+          <p class="list-place">{{ experience.place }}</p>
+          <p class="list-date">{{ experience.date }}</p>
+          <div class="list-description">
+            <div v-for="item in experience.description.split('\n')" :key="item">{{ item }}</div>
+            <div class="list-skills">{{ experience.skills }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
-
-<style>
-
-/* Styles the experience heading. Sets the font size to 5% of the viewport height. Uses flexbox for layout. Centers the content horizontally.*/
-#experience {
-  font-family: "Oswald", sans-serif;
-  font-size: 5vh;
-  display: flex;
-  justify-content: center;
-  padding: 3%;
-}
-
-/* Styles the experience title headings. Sets the font size to large. Adds cursor pointer for better UX. Sets the text color.
- Adds margin to the right, padding, border, rounded corners, transition effect. Removes text decoration. */
-.experienceHeading {
-  font-size: large;
-  cursor: pointer;
-  color: #8f8c8c;
-  margin-right: 10px;
-  padding: 8px 16px;
-  border: 1px solid #8f8c8c;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-/* Styles for hovering over experience headings. Slightly enlarges the element. Changes text color and border.*/
-.experienceHeading:hover {
-  transform: scale(1.01);
-  color: #075c07;
-  border: 1px solid #525952;
-}
-
-/* Styles the experience date.  Sets the font size to medium. Sets the text color. */
-.experienceDate {
-  font-size: medium;
-  color: rgb(127, 131, 127);
-
-}
-
-/* Container for experience headings. Aligns items vertically. */
-.experienceHeadingContainer {
-  align-items: center;
-}
-
-/* Styles for paragraph elements within the experience heading container. Removes left margin. Sets the text color.*/
-.experienceHeadingContainer p {
-  margin-left: 0rem;
-  color: rgb(127, 131, 127);
-}
-
-/* Styles the experience information container. Uses grid layout. Two columns. Adds margin. Aligns items vertically.*/
-.experience_info {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 2rem;
-  align-items: center;
-}
-
-/* Styles for experience list. Remove default list styles. Remove default padding */
-.experienceList {
-  list-style-type: none;
-  padding: 0;
-}
-
-/* Styles for list items within the experience list. Add spacing between list items. Add a border between list items.
-Add padding to the bottom of each list item. */
-.experienceList li {
-  margin-bottom: 10px;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 10px;
-}
-
-/* Styles for experience skills. Adds margin. */
-.exp-skill {
-  margin: 1rem;
-}
-
-/* Media query for screens with a max width of 1000px. Uses grid layout. One column. Adds gap between items.*/
-@media only screen and (max-width: 1000px) {
-
-  .experience_info {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-}
-</style>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 import AboutMeSection from "../Components/Nav/AboutMeSection.vue";
 
+const isGridView = ref(true);
 const experiences = ref([
 
   /**
@@ -214,13 +153,160 @@ const experiences = ref([
   },
 ]);
 
-/**
- * Toggles the visibility of the description for the given experience.
- * experiences is an array of experience objects, each containing details like date, title, place, description, skills, and a show property for toggling visibility.
- * toggleParagraph is a function that toggles the visibility of the description for a specific experience based on its index.
- * @param {number} index - The index of the experience to toggle
- */
 const toggleParagraph = (index: number) => {
-  experiences.value[index].show = !experiences.value[index].show;
+  if (isGridView.value) {
+    experiences.value[index].show = !experiences.value[index].show;
+  }
+};
+
+const toggleView = () => {
+  isGridView.value = !isGridView.value;
 };
 </script>
+
+<style scoped>
+.header-section {
+  position: relative;
+  padding: 1.5%;
+}
+
+#experience {
+  font-family: "Oswald", sans-serif;
+  font-size: 5vh;
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.experienceHeading {
+  font-size: large;
+  cursor: pointer;
+  color: #8f8c8c;
+  margin-right: 10px;
+  padding: 8px 16px;
+  border: 1px solid #8f8c8c;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.experienceHeading:hover {
+  transform: scale(1.01);
+  color: #075c07;
+  border: 1px solid #525952;
+}
+
+.experienceDate {
+  font-size: medium;
+  color: rgb(127, 131, 127);
+}
+
+.experienceHeadingContainer {
+  align-items: center;
+}
+
+.experienceHeadingContainer p {
+  margin-left: 0rem;
+  color: rgb(127, 131, 127);
+}
+
+.experience_info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 2rem;
+  align-items: center;
+}
+
+.exp-skill {
+  margin: 1rem;
+}
+
+/* View Toggle Button Styles */
+.view-toggle {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.toggle-view-btn {
+  margin: 1rem auto;
+  display: block;
+  font-size: large;
+  cursor: pointer;
+  color: #8f8c8c;
+  padding: 8px 16px;
+  border: 1px solid #8f8c8c;
+  border-radius: 4px;
+  background-color: transparent;
+  font-family: inherit;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-view-btn:hover {
+  transform: scale(1.10);
+  color: #075c07;
+  transition: background-color 0.3s ease;
+}
+
+/* List View Styles */
+.list-view {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.list-item {
+  border: 1px solid #8f8c8c;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  background-color: #292626;
+}
+
+.list-content h3 {
+  color: #cfcf87;
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+}
+
+.list-place, .list-date {
+  color: rgb(127, 131, 127);
+  margin: 0.5rem 0;
+}
+
+.list-description {
+  color: #c8c3c3;
+  margin-top: 1rem;
+}
+
+.list-skills {
+  margin-top: 1rem;
+  color: #8f8c8c;
+}
+
+@media only screen and (max-width: 1000px) {
+  .experience_info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .view-toggle {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    transform: none;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .list-item {
+    padding: 1rem;
+  }
+}
+</style>

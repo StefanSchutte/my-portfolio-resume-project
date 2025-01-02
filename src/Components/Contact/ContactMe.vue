@@ -2,7 +2,12 @@
 
   <div class="footerContainer">
     <footer class="footer">
-      <h1>Contact Me</h1>
+      <div class="header-section">
+        <h1>Contact Me</h1>
+        <div class="button-wrapper">
+          <DownloadResume />
+        </div>
+      </div>
       <div id="contactLinks" class="contactDetailSection">
         <div class="contact">
           <a href="https://github.com/StefanSchutte"
@@ -83,15 +88,29 @@
 </template>
 
 <style scoped>
-
+.header-section {
+  position: relative;
+  padding: 1rem;
+}
 /* Styles the main heading */
 h1 {
   color: white;
-  padding: 1rem;
+  margin: 0;
   font-family: "Oswald", sans-serif;
   font-size: 5vh;
   display: flex;
   justify-content: center;
+}
+
+.button-wrapper {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.button-wrapper :deep(.download-button-container) {
+  margin-bottom: 0;
 }
 
 /* Styles the container for the footer */
@@ -192,6 +211,17 @@ span {
     font-size: small;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .button-wrapper {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    transform: none;
+  }
+}
+
 @media only screen and (max-width: 550px) {
 
 .contactDetailSection {
@@ -213,4 +243,5 @@ p {
 }
 </style>
 <script setup lang="ts">
+import DownloadResume from "../../Components/Utils/DownloadResume.vue";
 </script>

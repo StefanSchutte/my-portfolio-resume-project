@@ -1,7 +1,18 @@
 <template>
   <AboutMeSection/>
-  <h2 id="education">EDUCATION</h2>
-  <div class="education-container">
+  <div class="header-section">
+    <h2 id="education">EDUCATION</h2>
+    <div class="view-toggle">
+      <button
+          @click="toggleView"
+          class="toggle-view-btn"
+      >
+        {{ isGridView ? "Switch to List View" : "Switch to Grid View" }}
+      </button>
+    </div>
+  </div>
+
+  <div class="education-container" v-if="isGridView">
     <ul class="education">
       <li v-for="(education, index) in educations" :key="index">
         <h3 class="educationHeading" @click="toggleParagraph(index)">
@@ -15,13 +26,37 @@
             target="_blank"
             rel="noopener noreferrer"
         >
-        <img
-             :src="education.certImg"
-             alt="Certificate Image"
-             class="certificate-image"/>
+          <img
+              :src="education.certImg"
+              alt="Certificate Image"
+              class="certificate-image"
+          />
         </a>
       </li>
     </ul>
+  </div>
+
+  <div v-else class="list-view">
+    <div class="list-item" v-for="(education, index) in educations" :key="index">
+      <div class="list-content">
+        <h3>{{ education.title }}</h3>
+        <p>{{ education.grad }} - {{ education.date }}</p>
+        <p>{{ education.location }}</p>
+        <a
+            v-if="education.certImg"
+            :href="education.website"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cert-link"
+        >
+          <img
+              :src="education.certImg"
+              alt="Certificate Image"
+              class="list-certificate-image"
+          />
+        </a>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -29,7 +64,18 @@
 import { ref } from 'vue';
 import AboutMeSection from "../Components/Nav/AboutMeSection.vue";
 
-const educations = ref([
+interface Education {
+  title: string;
+  grad: string;
+  date: string;
+  location: string;
+  certImg?: string;
+  website?: string;
+  show: boolean;
+}
+
+const isGridView = ref(true);
+const educations = ref<Education[]>([
   {
     title: 'The Complete ASP.NET MVC 5 Course.',
     grad:'Certificate',
@@ -163,19 +209,27 @@ const educations = ref([
   },
 ]);
 
-const toggleParagraph = (index: any) => {
-  educations.value[index].show = !educations.value[index].show;
+const toggleParagraph = (index: number) => {
+  if (isGridView.value) {
+    educations.value[index].show = !educations.value[index].show;
+  }
+};
+
+const toggleView = () => {
+  isGridView.value = !isGridView.value;
 };
 </script>
 
-<style>
-
+<style scoped>
+.header-section {
+  position: relative;
+  padding: 1%;
+}
 #education {
   font-family: "Oswald", sans-serif;
   font-size: 5vh;
   display: flex;
   justify-content: center;
-  padding: 3%;
 }
 
 .educationHeading {
@@ -213,15 +267,94 @@ const toggleParagraph = (index: any) => {
   margin-top: 10px;
 }
 
-@media only screen and (max-width: 1000px) {
+.view-toggle {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
+/* list view and toggle button */
+.toggle-view-btn {
+  margin: 1rem auto;
+  display: block;
+  font-size: large;
+  cursor: pointer;
+  color: #8f8c8c;
+  padding: 8px 16px;
+  border: 1px solid #8f8c8c;
+  border-radius: 4px;
+  background-color: transparent;
+  font-family: inherit;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-view-btn:hover {
+  transform: scale(1.10);
+  color: #075c07;
+  transition: background-color 0.3s ease;
+}
+
+.list-view {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.list-item {
+  border: 1px solid #8f8c8c;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  background-color: #292626;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+
+.list-content h3 {
+  color: #cfcf87;
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+}
+
+.list-content p {
+  color: #c8c3c3;
+  margin: 0.5rem 0;
+}
+
+.list-certificate-image {
+  width: 250px;
+  height: auto;
+  margin-top: 1rem;
+  border-radius: 4px;
+}
+
+.cert-link {
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* Keep your original media queries */
+@media only screen and (max-width: 1000px) {
   .education {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
   }
 }
-
+@media only screen and (max-width: 768px) {
+  .view-toggle {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    transform: none;
+  }
+}
 @media only screen and (max-width: 550px) {
   .education {
     display: grid;
@@ -229,8 +362,13 @@ const toggleParagraph = (index: any) => {
     gap: 20px;
   }
 
-  .certificate-image {
+  .certificate-image,
+  .list-certificate-image {
     width: 220px;
+  }
+
+  .list-item {
+    padding: 1rem;
   }
 }
 </style>
