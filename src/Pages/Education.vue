@@ -77,6 +77,15 @@ interface Education {
 const isGridView = ref(true);
 const educations = ref<Education[]>([
   {
+    title: 'ASP.NET MVC Complete Guide using .NET Core [.NET8 Updated]',
+    grad:'Certificate',
+    date: '2024',
+    location: 'Sameer Saini',
+    certImg: '/certImgasp.netmvcguide.jpg',
+    website:'https://www.udemy.com/course/aspnet-mvc-course-aspnet-core/',
+    show: false
+  },
+  {
     title: 'The Complete ASP.NET MVC 5 Course.',
     grad:'Certificate',
     date: '2024',
