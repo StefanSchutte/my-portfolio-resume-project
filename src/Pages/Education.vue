@@ -77,6 +77,15 @@ interface Education {
 const isGridView = ref(true);
 const educations = ref<Education[]>([
   {
+    title: 'The Nuxt 3 Bootcamp - The Complete Developer Guide',
+    grad:'Certificate',
+    date: '2025',
+    location: 'Laith Harb',
+    certImg: '/certImgNuxt.jpeg',
+    website:'https://www.udemy.com/course/the-nuxt-3-bootcamp-the-complete-developer-guide/',
+    show: false
+  },
+  {
     title: 'ASP.NET MVC Complete Guide using .NET Core [.NET8 Updated]',
     grad:'Certificate',
     date: '2024',

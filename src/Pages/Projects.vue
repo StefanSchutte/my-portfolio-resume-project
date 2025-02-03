@@ -72,6 +72,13 @@ const isCarouselView = ref(true);
 /** @type {import('vue').Ref<Project[]>} */
 const projects = ref([
   {
+    title: 'Vercel Gemini Chatbot',
+    image: 'projects-vercelgemini.png',
+    githubLink: 'https://github.com/StefanSchutte/gemini-ai-chatbot',
+    netlifyLink: 'https://gemini-ai-chatbot-tau-tan.vercel.app/',
+    description: 'Transformed a flight-specific Next.js chatbot into a general-purpose AI assistant by implementing Google search capabilities and enhancing the UI with improved styling and message handling.'
+  },
+  {
     title: 'Podcast App',
     image: 'podcastimg.png',
     githubLink: 'https://github.com/StefanSchutte/STESCH302_FTO2308_GroupA2_Stefan-Schutte_DWACapstone',
