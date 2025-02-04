@@ -242,6 +242,7 @@ const toggleView = () => {
 .header-section {
   position: relative;
   padding: 1%;
+  margin-top: 1rem;
 }
 #education {
   font-family: "Oswald", sans-serif;
@@ -273,10 +274,6 @@ const toggleView = () => {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 50px;
   margin: 2rem;
-}
-
-.education-container {
-  margin-left: -2rem;
 }
 
 .certificate-image {
@@ -325,7 +322,7 @@ const toggleView = () => {
   border-radius: 8px;
   padding: 2rem;
   margin-bottom: 1.5rem;
-  background-color: #292626;
+  background-color: #5c5a5a;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -63,8 +63,7 @@
 
 .footer {
   background-color: #494949;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+
   margin-bottom: 0;
 }
 

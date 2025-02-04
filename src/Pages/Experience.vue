@@ -61,7 +61,7 @@ const experiences = ref([
     date: "July 2024 - January 2025",
     title: "Junior Software Developer",
     place: "Meshed Group",
-    description: "- Currently working as a Junior/Intern Software Developer for an accounting automation ASP.NET MVC web app.\n" +
+    description: "- Junior/Intern Software Developer for an accounting automation ASP.NET MVC web app.\n" +
         "- Developed and maintained software features for the Meshed 360 platform, focusing on backend enhancements and front-end improvements. \n" +
         "- Conducted software maintenance and troubleshooting on Meshed 360 modules. \n" +
         "- Performed testing, debugging, and performance tuning to ensure software reliability and efficiency. ",
@@ -215,6 +215,7 @@ const toggleView = () => {
   grid-template-columns: 1fr 1fr;
   margin: 2rem;
   align-items: center;
+  gap: 1rem;
 }
 
 .exp-skill {
@@ -262,7 +263,7 @@ const toggleView = () => {
   border-radius: 8px;
   padding: 2rem;
   margin-bottom: 1.5rem;
-  background-color: #292626;
+  background-color: #5c5a5a;
 }
 
 .list-content h3 {
@@ -272,18 +273,18 @@ const toggleView = () => {
 }
 
 .list-place, .list-date {
-  color: rgb(127, 131, 127);
+  color: rgb(179, 182, 179);
   margin: 0.5rem 0;
 }
 
 .list-description {
-  color: #c8c3c3;
+  color: #dfdbdb;
   margin-top: 1rem;
 }
 
 .list-skills {
   margin-top: 1rem;
-  color: #8f8c8c;
+  color: rgb(179, 182, 179);
 }
 
 @media only screen and (max-width: 1000px) {

@@ -82,10 +82,6 @@ onMounted(async () => {
   padding: 3%;
 }
 
-.skills-container {
-  margin-left: -3rem;
-}
-
 /* Styles the unordered list. Removes the default list style. Centers the text. */
 ul {
   list-style-type: none;

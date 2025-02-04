@@ -384,6 +384,7 @@ h4 {
 .overlay-content {
   position: relative;
   background-color: #292626;
+  color: #ffffff;
   padding: 20px;
   border-radius: 10px;
   align-items: center;

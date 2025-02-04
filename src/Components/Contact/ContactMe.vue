@@ -1,218 +1,214 @@
 <template>
+  <div class="contact-section">
+    <div class="header-section">
+      <h1>Get in Touch</h1>
+      <p class="subtitle">Feel free to reach out through any of these platforms</p>
+      <div class="button-wrapper">
+        <DownloadResume />
+      </div>
+    </div>
 
-  <div class="footerContainer">
-    <footer class="footer">
-      <div class="header-section">
-        <h1>Contact Me</h1>
-        <div class="button-wrapper">
-          <DownloadResume />
+    <div class="contact-grid">
+      <a v-for="contact in contacts"
+         :key="contact.url"
+         :href="contact.url"
+         target="_blank"
+         class="contact-card">
+        <div class="icon-wrapper">
+          <component :is="contact.icon" class="icon" />
         </div>
-      </div>
-      <div id="contactLinks" class="contactDetailSection">
-        <div class="contact">
-          <a href="https://github.com/StefanSchutte"
-             target="_blank">
-            <img src="/gh.png" alt="github" width="100" height="100" title="Github">
-            <div class="contactInnerContainer">
-              <span>My Github Account</span>
-              <p>https://github.com/StefanSchutte</p>
-            </div>
-          </a>
+        <div class="contact-info">
+          <span class="contact-label">{{ contact.label }}</span>
+          <p class="contact-value">{{ contact.value }}</p>
         </div>
-        <div class="contact">
-          <a href="https://www.linkedin.com/in/stefan-schutte-668578292/" target="_blank">
-            <img src="/lk.png" alt="linkin" width="100" height="100" title="Linkedin">
-            <div class="contactInnerContainer">
-              <span>My Linkedin Profile</span>
-              <p>https://www.linkedin.com/in/stefan-schutte/</p>
-          </div>
-          </a>
-        </div>
-        <div class="contact">
-          <a href="https://www.instagram.com/stefan.schutte/" target="_blank">
-            <img src="/ig.png" alt="Instagram" width="100" height="100" title="Instagram">
-            <div class="contactInnerContainer">
-              <span>My Instagram</span>
-              <p>https://www.instagram.com/stefan.schutte/</p>
-            </div>
-          </a>
-        </div>
-        <div class="contact">
-          <a href="https://www.facebook.com/stefan.schutte1" target="_blank">
-            <img src="/fb.png" alt="Facebook" width="100" height="100" title="Facebook">
-            <div class="contactInnerContainer">
-              <span>My Facebook</span>
-              <p>https://www.facebook.com/stefan.schutte1</p>
-          </div>
-          </a>
-        </div>
-        <div class="contact">
-          <a href="https://www.youtube.com/channel/UCPkJAECROt6Wqdns2yD4msw" target="_blank">
-            <img src="/yt.png" alt="youtube" width="100" height="100" title="Youtube">
-            <div class="contactInnerContainer">
-              <span>My Youtube Account</span>
-              <p></p>
-            </div>
-          </a>
-        </div>
-        <div class="contact">
-          <a href="mailto:stefanschutte@icloud.com" target="_blank">
-            <img src="/ml.png" alt="stefanschutte@icloud.com" width="100" height="100" title="Email">
-            <div class="contactInnerContainer">
-              <span>My E-mail Address</span>
-              <p>stefanschutte@icloud.com</p>
-            </div>
-          </a>
-        </div>
-        <div class="contact">
-          <a href="tel:+27672658798" target="_blank">
-            <img src="/pn.png" alt="+27672658798" width="100" height="100" title="Call">
-            <div class="contactInnerContainer">
-              <span>Call Me</span>
-              <p>+27 67 2658 798</p>
-            </div>
-          </a>
-        </div>
-        <div class="contact">
-          <a href="tel:+27765314027" target="_blank">
-            <img src="/wa.png" alt="whatsapp" width="100" height="100" title="Whatsapp">
-            <div class="contactInnerContainer">
-              <span>Send Me a Whatsapp</span>
-              <p>+27 76 531 4027</p>
-            </div>
-          </a>
-        </div>
-      </div>
-    </footer>
+      </a>
+    </div>
   </div>
 </template>
 
+<script setup lang="ts">
+import DownloadResume from "../../Components/Utils/DownloadResume.vue";
+import {
+  Github,
+  Linkedin,
+  Instagram,
+  Facebook,
+  Youtube,
+  Mail,
+  Phone,
+  MessageCircle
+} from 'lucide-vue-next';
+
+const contacts = [
+  {
+    icon: Github,
+    label: "My Github Account",
+    value: "github.com/StefanSchutte",
+    url: "https://github.com/StefanSchutte"
+  },
+  {
+    icon: Linkedin,
+    label: "My LinkedIn Profile",
+    value: "stefan-schutte",
+    url: "https://www.linkedin.com/in/stefan-schutte-668578292/"
+  },
+  {
+    icon: Instagram,
+    label: "My Instagram",
+    value: "@stefan.schutte",
+    url: "https://www.instagram.com/stefan.schutte/"
+  },
+  {
+    icon: Facebook,
+    label: "My Facebook",
+    value: "stefan.schutte1",
+    url: "https://www.facebook.com/stefan.schutte1"
+  },
+  {
+    icon: Youtube,
+    label: "My Youtube Account",
+    value: "My Channel",
+    url: "https://www.youtube.com/channel/UCPkJAECROt6Wqdns2yD4msw"
+  },
+  {
+    icon: Mail,
+    label: "My E-mail Address",
+    value: "stefanschutte@icloud.com",
+    url: "mailto:stefanschutte@icloud.com"
+  },
+  {
+    icon: Phone,
+    label: "Call Me",
+    value: "+27 67 265 8798",
+    url: "tel:+27672658798"
+  },
+  {
+    icon: MessageCircle,
+    label: "Send Me a Whatsapp",
+    value: "+27 76 531 4027",
+    url: "tel:+27765314027"
+  }
+];
+</script>
+
 <style scoped>
+.contact-section {
+  width: 100%;
+  padding: 2rem 1rem;
+  background: rgb(66, 66, 66);
+}
+
 .header-section {
   position: relative;
-  padding: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
 }
-/* Styles the main heading */
-h1 {
+
+.header-section h1 {
+  font-size: 2.25rem;
+  font-weight: bold;
   color: white;
-  margin: 0;
-  font-family: "Oswald", sans-serif;
-  font-size: 5vh;
+  margin-bottom: 0.5rem;
   display: flex;
   justify-content: center;
+  font-family: "Oswald", sans-serif;
+}
+
+.subtitle {
+  color: #9ca3af;
+  max-width: 42rem;
+  margin: 0 auto 2rem;
 }
 
 .button-wrapper {
-  position: absolute;
-  right: 2rem;
-  top: 50%;
-  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
-.button-wrapper :deep(.download-button-container) {
-  margin-bottom: 0;
-}
-
-/* Styles the container for the footer */
-.footerContainer {
-  text-align: center;
-}
-
-/* Styles the footer element */
-.footer {
-  margin-bottom: 0;
-  padding: 2rem 0;
-}
-
-/* Styles the contact detail section to display items in a grid layout */
-.contactDetailSection {
+.contact-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-content: center;
-  align-items: center;
+  gap: 1.5rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
-/* Styles individual contact items */
-.contact {
+.contact-card {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  text-align: right;
-  padding: 1rem;
-  border-radius: 15px;
-  box-sizing: border-box;
-  border: 2px solid gray;
-  margin: 1rem;
-  height: 18vh;
-}
-
-/* Styles the inner container for contact details */
-.contactInnerContainer {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-}
-
-/* Styles the contact images */
-.contact img {
-  overflow: hidden;
-  border-radius: 50%;
-  width: 2rem;
-  height: 2rem;
-}
-
-/* Styles the links within the footer */
-footer a {
-  font-size: 100%;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  background-color: #1f2937;
   text-decoration: none;
+  transform: translateZ(0);
+}
+
+.contact-card:hover {
+  background-color: #059669;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: scale(1.02) translateZ(0);
+}
+
+.icon-wrapper {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
   display: flex;
+  align-items: center;
   justify-content: center;
-  margin-bottom: 15px;
-  margin-top: 15px;
+  background-color: #374151;
+  border-radius: 9999px;
+  margin-right: 1rem;
+  transition: background-color 0.3s ease;
 }
 
-/* Adds a hover effect to contact items */
-.contact:hover {
-  background-color: rgb(40, 177, 40);
-  transform: scale(1.01);
+.contact-card:hover .icon-wrapper {
+  background-color: #10b981;
 }
 
-/* Styles the text within the span element */
-span {
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #d1d5db;
+}
+
+.contact-card:hover .icon {
   color: white;
-  margin-left: 2rem;
-  text-align: center;
-  padding: 1rem;
-  font-size: medium;
 }
 
-@media only screen and (max-width: 1100px) {
-
-  .contactDetailSection {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
-    align-items: center;
-    gap: 0.4rem;
-  }
-
-  .contact {
-    justify-content: center;
-    border-radius: 15px;
-    box-sizing: border-box;
-    border: 2px solid gray;
-    margin: 0.5rem;
-    width: 40vw;
-    height: 12vh;
-  }
-
-  p {
-    font-size: small;
-  }
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
-@media only screen and (max-width: 768px) {
+.contact-label {
+  color: #d1d5db;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  text-align: left;
+  padding: 0;
+  margin-left: 0;
+}
+
+.contact-value {
+  color: #9ca3af;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.contact-card:hover .contact-label,
+.contact-card:hover .contact-value {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
   .button-wrapper {
     position: static;
     display: flex;
@@ -222,26 +218,17 @@ span {
   }
 }
 
-@media only screen and (max-width: 550px) {
+@media (max-width: 640px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
 
-.contactDetailSection {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  justify-content: center;
-  align-items: center;
-  gap: 0.4rem;
-}
+  .contact-card {
+    width: 100%;
+  }
 
-.contact {
-  width: 90vw;
-  height: 20vh;
-}
-
-p {
-  font-size: small;
-}
+  .header-section h1 {
+    font-size: 1.875rem;
+  }
 }
 </style>
-<script setup lang="ts">
-import DownloadResume from "../../Components/Utils/DownloadResume.vue";
-</script>

@@ -28,7 +28,7 @@
         :photos="photoGallery"
         @close="closeModal"
     />
-  <Foot />
+  <HomeFooter />
   </div>
 </template>
 
@@ -38,6 +38,7 @@ import {defineComponent} from "vue";
 import ThemeToggle from "../Components/Utils/ThemeToggle.vue";
 import PhotoModal from '../Components/Utils/PhotoModal.vue';
 import Loader from "../Components/Utils/Loader.vue";
+import HomeFooter from "../Components/Contact/HomeFooter.vue";
 /**
  * Hero section with a dimmed background image.
  * It includes a profile picture, a header with the name "Stefan Schutte", and a footer component.
@@ -46,7 +47,7 @@ import Loader from "../Components/Utils/Loader.vue";
  * @component
  */
 export default defineComponent({
-  components: {ThemeToggle, Foot, PhotoModal, Loader},
+  components: {HomeFooter, ThemeToggle, Foot, PhotoModal, Loader},
     data() {
       return {
         isModalOpen: false,

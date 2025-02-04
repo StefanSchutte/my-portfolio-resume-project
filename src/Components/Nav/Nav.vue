@@ -21,8 +21,6 @@ nav {
   justify-content: space-between;
   align-items: center;
   background-color: #494949;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
   font-family: "Oswald", sans-serif;
   padding: 0.3rem;
 }
@@ -134,8 +132,8 @@ p {
 
   .theme-toggle-container {
     position: absolute;
-    top: 0rem;
-    right: -0.2rem;
+    top: 0.3rem;
+    right: 0.3rem;
   }
 
 }
