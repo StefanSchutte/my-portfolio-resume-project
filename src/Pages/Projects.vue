@@ -6,7 +6,7 @@
       <h2 id="projects">PROJECTS</h2>
       <div class="view-toggle">
         <button @click="toggleView" class="toggle-view-btn">
-          {{ isCarouselView ? "Switch to List View" : "Switch to Carousel View" }}
+          {{ isCarouselView ? "Switch to Grid View" : "Switch to Carousel View" }}
         </button>
       </div>
     </div>
@@ -22,7 +22,7 @@
       <button @click="nextSlide" class="carousel-control next">&#10095;</button>
     </div>
 
-    <div v-show="!isCarouselView && !isLoading" class="list-view">
+<!--    <div v-show="!isCarouselView && !isLoading" class="list-view">
       <div class="list-item" v-for="project in projects" :key="project.title">
         <img :src="project.image" :alt="project.title" class="list-image" />
         <div class="list-details">
@@ -33,6 +33,13 @@
             <a :href="project.netlifyLink" target="_blank">Deployed Site</a>
           </div>
         </div>
+      </div>
+    </div>-->
+
+    <div v-show="!isCarouselView && !isLoading" class="grid-view">
+      <div class="grid-item" v-for="(project, index) in projects" :key="project.title" @click="showOverlay(index)">
+        <img :src="project.image" :alt="project.title" class="grid-image" />
+        <h4 class="grid-title">{{ project.title }}</h4>
       </div>
     </div>
 
@@ -477,6 +484,41 @@ h4 {
   color: #c8c3c3;
 }
 
+
+
+.grid-view {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.grid-item {
+  background-color: #292626;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.grid-item:hover {
+  transform: scale(1.05);
+}
+
+.grid-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.grid-title {
+  color: #b84d4d;
+  text-align: center;
+  padding: 1rem;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
 /* Responsive styles */
 @media (max-width: 486px) {
   .list-item {
@@ -523,6 +565,29 @@ h4 {
 
   h4 {
     font-size: medium;
+  }
+}
+
+/* Responsive adjustments for grid */
+@media (max-width: 1200px) {
+  .grid-view {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .grid-view {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-view {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-item {
+    max-width: 100%;
   }
 }
 </style>
