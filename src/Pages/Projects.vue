@@ -21,17 +21,49 @@
             dynamicMainBullets: 5
           }"
           :modules="[Navigation, Pagination]"
-          :space-between="10"
+          :space-between="20"
           :breakpoints="{
-            640: {
-              slidesPerView: 2,
-              spaceBetween: 10
-            },
-            1024: {
-              slidesPerView: 5,
-              spaceBetween: 10
-            }
-          }"
+      // Mobile (small)
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      },
+      // Mobile (landscape) / Tablet (small)
+      480: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      },
+      // Tablet
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 25
+      },
+      // Tablet (landscape)
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 25
+      },
+      // Desktop (small)
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 25
+      },
+      // Desktop (medium)
+      1280: {
+        slidesPerView: 4,
+        spaceBetween: 25
+      },
+      // Desktop (large)
+      1536: {
+        slidesPerView: 5,
+        spaceBetween: 25
+      },
+      // Desktop (extra large)
+      1920: {
+        slidesPerView: 5,
+        spaceBetween: 25
+      }
+    }"
           class="project-swiper"
       >
         <swiper-slide v-for="(project, index) in projects" :key="index">
@@ -254,7 +286,7 @@ h4 {
 .project-card {
   flex: 0 0 auto;
   width: 100%;
-  max-width: 350px;
+  max-width: 450px;
   background-color: #292626;
   border-radius: 10px;
   overflow: hidden;
@@ -452,9 +484,10 @@ h4 {
 }
 
 .toggle-view-btn:hover {
-  transform: scale(1.10);
-  color: #075c07;
-  transition: background-color 0.3s ease;
+  color: white;
+  background-color: #059669;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: scale(1.02) translateZ(0);
 }
 /*grid*/
 .grid-view {
@@ -513,8 +546,8 @@ h4 {
 .swiper-button-prev {
   color: #ffffff;
   background: #374151;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   transition: all 0.3s ease;
 }
@@ -528,7 +561,7 @@ h4 {
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
-  font-size: 24px;
+  font-size: 30px;
 }
 
 .swiper-pagination-bullet {

@@ -97,7 +97,7 @@ p {
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #059669;
 }
 
 input:checked + .slider:before {
@@ -145,7 +145,7 @@ input:checked + .slider:before {
   }
 
   input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #059669;
   }
 
   input:checked + .slider:before {
