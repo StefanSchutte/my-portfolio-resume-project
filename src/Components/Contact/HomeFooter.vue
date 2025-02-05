@@ -76,7 +76,7 @@ const contacts = [
 }
 
 .footer {
-  background-color: #494949;
+  background-color: #5c5a5a;
   margin-bottom: 0;
 }
 
@@ -107,9 +107,9 @@ const contacts = [
 }
 
 .contact:hover {
-  background-color: rgb(40, 177, 40);
-  transform: scale(1.05);
-  border-radius: 15px;
+  background-color: #059669;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: scale(1.02) translateZ(0);
 }
 
 .contact:hover .icon {

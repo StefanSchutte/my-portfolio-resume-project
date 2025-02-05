@@ -22,7 +22,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #3a3a3a;
+  background-color: #494949;
   padding: 1rem;
   font-family: 'Oswald', sans-serif;
   color: black;

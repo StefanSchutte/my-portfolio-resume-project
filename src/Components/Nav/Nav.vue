@@ -20,7 +20,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #494949;
+  background-color: #5c5a5a;
   font-family: "Oswald", sans-serif;
   padding: 0.3rem;
 }
@@ -68,9 +68,10 @@ nav ul img {
 
 /* Adds hover effect to navigation items */
 .nav-item:hover {
-  background-color: rgb(40, 177, 40);
-  transform: scale(1.20);
-  border-radius: 10px;
+  background-color: #059669;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: scale(1.20) translateZ(0);
+  border-radius: 5px;
 }
 
 /* Removes underline from links and sets text color */
@@ -112,7 +113,7 @@ p {
     max-width: none;
     margin: 0.3rem;
     font-size: small;
-    padding: 0px;
+    padding: 1px;
   }
 
   /* Ensure images do not overflow. Maintain aspect ratio */

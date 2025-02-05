@@ -11,30 +11,42 @@
       </div>
     </div>
 
-    <div v-show="isCarouselView && !isLoading" class="carousel-container">
-      <div class="carousel">
-        <div class="project-card" v-for="(project, index) in projects" :key="index">
-          <h4>{{ project.title }}</h4>
-          <img :src="project.image" :alt="project.title" @click="showOverlay(index)" @load="onImageLoad" />
-        </div>
-      </div>
-      <button @click="prevSlide" class="carousel-control prev">&#10094;</button>
-      <button @click="nextSlide" class="carousel-control next">&#10095;</button>
-    </div>
-
-<!--    <div v-show="!isCarouselView && !isLoading" class="list-view">
-      <div class="list-item" v-for="project in projects" :key="project.title">
-        <img :src="project.image" :alt="project.title" class="list-image" />
-        <div class="list-details">
-          <h3>{{ project.title }}</h3>
-          <p>{{ project.description }}</p>
-          <div class="linksGitDep">
-            <a :href="project.githubLink" target="_blank">Code</a>
-            <a :href="project.netlifyLink" target="_blank">Deployed Site</a>
+    <div v-show="isCarouselView && !isLoading">
+      <swiper
+          :slides-per-view="1"
+          :navigation="true"
+          :pagination="{
+            clickable: true,
+            dynamicBullets: true,
+            dynamicMainBullets: 5
+          }"
+          :modules="[Navigation, Pagination]"
+          :space-between="10"
+          :breakpoints="{
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 10
+            },
+            1024: {
+              slidesPerView: 5,
+              spaceBetween: 10
+            }
+          }"
+          class="project-swiper"
+      >
+        <swiper-slide v-for="(project, index) in projects" :key="index">
+          <div class="project-card" @click="showOverlay(index)">
+            <img
+                :src="project.image"
+                :alt="project.title"
+                @load="onImageLoad"
+                class="carousel-image"
+            />
+            <h4 class="carousel-title">{{ project.title }}</h4>
           </div>
-        </div>
-      </div>
-    </div>-->
+        </swiper-slide>
+      </swiper>
+    </div>
 
     <div v-show="!isCarouselView && !isLoading" class="grid-view">
       <div class="grid-item" v-for="(project, index) in projects" :key="project.title" @click="showOverlay(index)">
@@ -69,7 +81,12 @@
  * @property {string} description - A brief description of the project.
  */
 
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import Tools from "../Components/Nav/Tools.vue";
 import Loader from "../Components/Utils/Loader.vue";
 
@@ -208,36 +225,6 @@ const toggleView = () => {
 };
 
 /**
- * Moves the carousel to the previous slide.
- */
-const prevSlide = () => {
-  if (currentIndex > 0) {
-    currentIndex--;
-    updateCarousel();
-  }
-};
-
-/**
- * Moves the carousel to the next slide.
- */
-const nextSlide = () => {
-  if (currentIndex < projects.value.length - 1) {
-    currentIndex++;
-    updateCarousel();
-  }
-};
-
-/**
- * Updates the carousel's transform property to show the correct slide.
- */
-const updateCarousel = () => {
-  const carousel = document.querySelector('.carousel');
-  const projectCards = document.querySelectorAll('.project-card');
-  const cardWidth = projectCards[0].offsetWidth;
-  carousel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-};
-
-/**
  * Displays the overlay with the project details.
  * @param {number} index - The index of the project to display in the overlay.
  */
@@ -255,49 +242,7 @@ const hideOverlay = () => {
 </script>
 
 <style>
-/* Styles for carousel container and controls */
-.carousel-container {
-  position: relative;
-  overflow: hidden;
-}
 
-.carousel {
-  display: flex;
-  transition: transform 0.5s ease;
-  width: 100%;
-  height: 60%;
-  position: relative;
-}
-
-.carousel-control {
-  position: absolute;
-  top: 40%;
-  transform: translateY(-50%);
-  background: #434141;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  z-index: 20;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.carousel-control:hover {
-  background-color: #28b128;
-  transition: background-color 0.3s ease;
-}
-
-.prev {
-  left: 0;
-}
-
-.next {
-  right: 0;
-}
 
 /* Styles for project cards */
 h4 {
@@ -308,25 +253,31 @@ h4 {
 
 .project-card {
   flex: 0 0 auto;
-  margin-right: 20px;
-  width: 30rem;
+  width: 100%;
+  max-width: 350px;
+  background-color: #292626;
   border-radius: 10px;
   overflow: hidden;
-  transition: transform 0.5s ease;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  margin: 0 auto;
 }
 .project-card:hover {
   transform: scale(1.05);
 }
 
-.project-card img {
+.carousel-image {
   width: 100%;
-  height: 50%;
+  height: 200px;
   object-fit: cover;
 }
 
-.project-card h3 {
-  font-size: 1.4rem;
-  color: #813a3a;
+.carousel-title {
+  color: #b84d4d;
+  text-align: center;
+  padding: 1rem;
+  margin: 0;
+  font-size: 1.2rem;
 }
 
 .project-card p {
@@ -381,46 +332,107 @@ h4 {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.75);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 20;
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .overlay-content {
   position: relative;
-  background-color: #292626;
+  background-color: #1a1a1a;
   color: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 2.5rem;
+  border-radius: 20px;
   align-items: center;
-  width: 90%;
-  height: 90%;
+  width: 85%;
+  max-width: 1000px;
+  height: auto;
+  max-height: 90vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 1.5rem;
   z-index: 30;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .overlay button {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: red;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
+  top: 1.5rem;
+  right: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  padding: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.overlay button:hover {
+  background-color: rgba(255, 59, 59, 0.9);
+  transform: rotate(90deg);
 }
 
 .overlay-image {
-  max-width: 25rem;
-  height: 15rem;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.overlay-image:hover {
+  transform: scale(1.02);
 }
 
 .overlay h3 {
-  color: #aa5454;
-  font-size: 2rem;
+  color: #ff6b6b;
+  font-size: 2.25rem;
+  margin: 0;
+  font-weight: 600;
+  text-align: center;
+}
+
+.overlay p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #d1d1d1;
+  margin: 0;
+  text-align: center;
+  max-width: 800px;
 }
 
 /*list*/
@@ -444,48 +456,7 @@ h4 {
   color: #075c07;
   transition: background-color 0.3s ease;
 }
-
-.list-view {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.list-item {
-  display: flex;
-  gap: 1rem;
-  border: 1px solid #8f8c8c;
-  padding: 1rem;
-  border-radius: 8px;
-  background-color: #292626;
-}
-
-.list-image {
-  width: 150px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.list-details {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.list-details h3 {
-  margin: 0;
-  color: #b84d4d;
-}
-
-.list-details p {
-  margin: 0.5rem 0;
-  color: #c8c3c3;
-}
-
-
-
+/*grid*/
 .grid-view {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -519,24 +490,56 @@ h4 {
   font-size: 1.2rem;
 }
 
-/* Responsive styles */
-@media (max-width: 486px) {
-  .list-item {
-    flex-direction: column; /* Stack items vertically */
-    align-items: flex-start; /* Align items to the start */
-  }
-
-  .list-image {
-    width: 100%;
-    height: auto;
-  }
-
-  .list-details {
-    text-align: left;
-    margin-top: 0.5rem;
-  }
+/*Swiper-specific styles */
+.project-swiper {
+  padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+.swiper-wrapper {
+  display: flex;
+  align-items: stretch;
+  height: auto;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ffffff;
+  background: #374151;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: #059669;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: scale(1.02) translateZ(0);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 24px;
+}
+
+.swiper-pagination-bullet {
+  background: #8597bc;
+}
+
+.swiper-pagination-bullet-active {
+  background: #059669;
+}
+
+/* Responsive styles */
 @media only screen and (max-width: 768px) {
   .view-toggle {
     position: static;
@@ -544,27 +547,6 @@ h4 {
     justify-content: center;
     margin-top: 1rem;
     transform: none;
-  }
-}
-
-@media only screen and (max-width: 550px) {
-
-  .project-card {
-    flex: 0 0 auto;
-    margin-right: 20px;
-    width: 250px;
-    height: 400px;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.5s ease;
-  }
-  .overlay-image {
-    max-width: 10rem;
-    height: 5rem;
-  }
-
-  h4 {
-    font-size: medium;
   }
 }
 
