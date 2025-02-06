@@ -96,7 +96,11 @@
           <a :href="projects[currentIndex].githubLink" target="_blank">Code</a>
           <a :href="projects[currentIndex].netlifyLink" target="_blank">Deployed Site</a>
         </div>
-        <button @click="hideOverlay">X</button>
+        <button @click="hideOverlay">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
       </div>
     </div>
   </div>
