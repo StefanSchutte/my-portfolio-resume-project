@@ -94,13 +94,17 @@ const contacts = [
 <style scoped>
 .contact-section {
   width: 100%;
-  padding: 2rem 1rem;
-  background: rgb(66, 66, 66);
+  padding: 1rem 1rem;
 }
 
 .header-section {
   position: relative;
-  margin-bottom: 1rem;
+  padding: 1rem 1rem;
+  background: linear-gradient(to right, #1a1a1a, #2d2d2d);
+  border-radius: 20px;
+  margin: 0.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 

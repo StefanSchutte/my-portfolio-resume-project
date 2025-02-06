@@ -167,15 +167,33 @@ const toggleView = () => {
 <style scoped>
 .header-section {
   position: relative;
-  padding: 1.5%;
+  padding: 2rem 1rem;
+  background: linear-gradient(to right, #1a1a1a, #2d2d2d);
+  border-radius: 20px;
+  margin: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 #experience {
   font-family: "Oswald", sans-serif;
-  font-size: 5vh;
+  font-size: 2rem;
   display: flex;
   justify-content: center;
-  margin: 0.5rem 0;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 2px;
+  position: relative;
+}
+#experience::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: #059669;
+  border-radius: 2px;
 }
 
 .experienceHeading {
@@ -246,9 +264,10 @@ const toggleView = () => {
 }
 
 .toggle-view-btn:hover {
-  transform: scale(1.10);
-  color: #075c07;
-  transition: background-color 0.3s ease;
+  color: white;
+  background-color: #059669;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: scale(1.02) translateZ(0);
 }
 
 /* List View Styles */

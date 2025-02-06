@@ -7,7 +7,7 @@
     </div>
   </div>
   <div class="about_info">
-    <p>"As an enthusiastic and dedicated entry-level Software Developer, I bring a unique blend of academic excellence,
+    <p class="quote">"As an enthusiastic and dedicated entry-level Software Developer, I bring a unique blend of academic excellence,
       diverse professional experiences, and a relentless commitment to continuous learning. My foundation in Communication Science,
       coupled with practical skills honed at CodeSpace Academy and Udemy courses, positions me as a versatile individual ready to make
       a meaningful impact in the dynamic field of software development."</p>
@@ -27,50 +27,132 @@
 </template>
 
 <style>
-
 .header-section {
   position: relative;
-  padding: 3%;
+  padding: 2rem 1rem;
+  background: linear-gradient(to right, #1a1a1a, #2d2d2d);
+  border-radius: 20px;
+  margin: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .about {
   font-family: "Oswald", sans-serif;
-  font-size: 5vh;
+  font-size: 2rem;
   display: flex;
   justify-content: center;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.about::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: #059669;
+  border-radius: 2px;
 }
 
 .button-wrapper {
   position: absolute;
-  right: 1rem;
+  right: 2rem;
   top: 50%;
   transform: translateY(-50%);
 }
 
-.button-wrapper :deep(.download-button-container) {
-  margin-bottom: 0;
-}
-
 .about_info {
-  margin: 2rem;
-  margin-bottom: 5rem;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
   font-family: "Mukta", sans-serif;
-  font-size: large;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #ffffff;
 }
 
+.about_info p {
+  background: rgba(41, 38, 38, 0.7);
+  padding: 2rem;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about_info p:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Update highlight effect */
 .highlight {
-  background-color: #bfa719;
-  transition: background-color 0.3s ease;
+  background: linear-gradient(120deg, #059669 0%, #34d399 100%);
+  color: white;
+  padding: 0.2em 0.1em;
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
 
+/* Add animation for word hover */
+.word {
+  display: inline-block;
+  transition: all 0.3s ease;
+  padding: 0.1em 0.2em;
+  border-radius: 4px;
+}
+
+.word:hover {
+  transform: scale(1.1);
+}
+
+/* First paragraph special styling */
+.about_info p:first-child {
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-left: 4px solid #059669;
+  background: rgba(5, 150, 105, 0.1);
+  color: var(--text-color, #333);
+}
+
+/* Responsive styles */
 @media only screen and (max-width: 768px) {
+  .header-section {
+    padding: 2rem 1rem;
+    margin: 1rem;
+  }
+
+  .about {
+    font-size: 2.5rem;
+  }
+
   .button-wrapper {
     position: static;
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     transform: none;
   }
+
+  .about_info {
+    padding: 0 1rem;
+    margin: 2rem auto;
+  }
+
+  .about_info p {
+    padding: 1.5rem;
+  }
+}
+
+/* Add smooth transitions */
+* {
+  transition: all 0.3s ease-in-out;
 }
 
 </style>
