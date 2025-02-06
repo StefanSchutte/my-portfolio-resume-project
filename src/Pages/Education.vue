@@ -263,12 +263,6 @@ const educations = ref<Education[]>([
   },
 ]);
 
-const toggleParagraph = (index: number) => {
-  if (isGridView.value) {
-    educations.value[index].show = !educations.value[index].show;
-  }
-};
-
 const toggleView = () => {
   isGridView.value = !isGridView.value;
 };
@@ -408,12 +402,6 @@ const closeModal = () => {
   font-size: 0.775rem;
 }
 
-.education-type {
-  color: #34d399;
-  font-size: 0.875rem;
-  margin-top: 0.5rem;
-}
-
 .certificate-image {
   width: 350px;
   height: auto;
@@ -490,11 +478,6 @@ const closeModal = () => {
 .list-place {
   color: #9ca3af;
   margin: 0.5rem 0;
-}
-
-.list-type {
-  color: #34d399;
-  margin-top: 0.5rem;
 }
 
 /* Modal Styles */
