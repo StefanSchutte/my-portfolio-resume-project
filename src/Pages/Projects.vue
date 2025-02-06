@@ -117,7 +117,7 @@
  * @property {string} description - A brief description of the project.
  */
 
-import { ref, onMounted, computed } from 'vue';
+import { ref } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -278,7 +278,6 @@ const hideOverlay = () => {
 </script>
 
 <style>
-
 
 /* Styles for project cards */
 h4 {

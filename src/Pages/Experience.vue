@@ -17,7 +17,6 @@
     <div v-if="isGridView" class="timeline-container">
       <!-- Center Line -->
       <div class="center-line"></div>
-
       <!-- Experience Items -->
       <div class="timeline-items">
         <div
@@ -214,12 +213,6 @@ const experiences = ref([
   },
 ]);
 
-const toggleParagraph = (index: number) => {
-  if (isGridView.value) {
-    experiences.value[index].show = !experiences.value[index].show;
-  }
-};
-
 const toggleView = () => {
   isGridView.value = !isGridView.value;
 };
@@ -267,15 +260,6 @@ const closeModal = () => {
   background: #059669;
   border-radius: 2px;
 }
-
-
-
-.experienceHeadingContainer p {
-  margin-left: 0rem;
-  color: rgb(127, 131, 127);
-}
-
-
 
 /* View Toggle Button Styles */
 .view-toggle {
@@ -384,7 +368,6 @@ const closeModal = () => {
   font-size: 0.875rem;
   transition: all 0.3s ease;
 }
-
 
 /* Timeline Styles */
 .timeline-container {
@@ -595,19 +578,6 @@ const closeModal = () => {
   border-radius: 9999px;
   font-size: 0.875rem;
 }
-
-/* Modal Transitions */
-.modal-enter-active,
-.modal-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.modal-enter-from,
-.modal-leave-to {
-  opacity: 0;
-}
-
-
 
 @media only screen and (max-width: 768px) {
   .view-toggle {
