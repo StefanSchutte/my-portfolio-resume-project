@@ -97,9 +97,7 @@
           <a :href="projects[currentIndex].netlifyLink" target="_blank">Deployed Site</a>
         </div>
         <button @click="hideOverlay">
-          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
+          <X class="w-6 h-6" />
         </button>
       </div>
     </div>
@@ -117,7 +115,7 @@
  * @property {string} description - A brief description of the project.
  */
 
-import { ref } from 'vue';
+import {onUnmounted, ref, watch} from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -125,6 +123,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import Tools from "../Components/Nav/Tools.vue";
 import Loader from "../Components/Utils/Loader.vue";
+import { X } from 'lucide-vue-next';
 
 const isLoading = ref(true);
 const isCarouselView = ref(true);
@@ -260,6 +259,19 @@ const toggleView = () => {
   isCarouselView.value = !isCarouselView.value;
 };
 
+const toggleBodyScroll = (disable) => {
+  if (disable) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
+};
+
+// Watch overlay visibility and toggle body scroll
+watch(isOverlayVisible, (newValue) => {
+  toggleBodyScroll(newValue);
+});
+
 /**
  * Displays the overlay with the project details.
  * @param {number} index - The index of the project to display in the overlay.
@@ -275,6 +287,11 @@ const showOverlay = (index) => {
 const hideOverlay = () => {
   isOverlayVisible.value = false;
 };
+
+// Clean up on component unmount
+onUnmounted(() => {
+  toggleBodyScroll(false);
+});
 </script>
 
 <style>
@@ -308,7 +325,7 @@ h4 {
 }
 
 .carousel-title {
-  color: #b84d4d;
+  color: #ffffff;
   text-align: center;
   padding: 1rem;
   margin: 0;
@@ -407,8 +424,9 @@ h4 {
 
 .overlay-content {
   position: relative;
-  background-color: #1a1a1a;
+
   color: #ffffff;
+  background: #1f2937;
   padding: 2.5rem;
   border-radius: 15px;
   align-items: center;
@@ -474,7 +492,7 @@ h4 {
 }
 
 .overlay h3 {
-  color: #ff6b6b;
+  color: #ffffff;
   font-size: 2.25rem;
   margin: 0;
   font-weight: 600;
@@ -484,7 +502,7 @@ h4 {
 .overlay p {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #d1d1d1;
+  color: #b1b5b1;
   margin: 0;
   text-align: center;
   max-width: 800px;

@@ -23,9 +23,8 @@
           :key="index"
           class="timeline-item"
           :class="{ 'right': index % 2 === 0, 'left': index % 2 === 1 }"
-          @click="openModal(education)"
       >
-        <div class="education-card">
+        <div @click="openModal(education)" class="education-card">
           <span class="education-date">{{ education.date }}</span>
           <h3 class="education-title">{{ education.title }}</h3>
           <p class="education-place">{{ education.location }}</p>
@@ -56,9 +55,7 @@
     <div v-if="isModalOpen" class="modal-overlay" @click="closeModal">
       <div class="modal-content" @click.stop>
         <button class="modal-close" @click="closeModal">
-          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
+          <X class="w-6 h-6" />
         </button>
 
         <div class="modal-body">
@@ -94,8 +91,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import {onUnmounted, ref, watch} from 'vue';
 import AboutMeSection from "../Components/Nav/AboutMeSection.vue";
+import { X } from 'lucide-vue-next';
 
 interface Education {
   title: string;
@@ -267,6 +265,20 @@ const toggleView = () => {
   isGridView.value = !isGridView.value;
 };
 
+const toggleBodyScroll = (disable: boolean) => {
+  if (disable) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = '';
+  }
+};
+
+// Watch modal state and toggle body scroll
+watch(isModalOpen, (newValue) => {
+  toggleBodyScroll(newValue);
+});
+
+
 const openModal = (education) => {
   selectedEducation.value = education;
   isModalOpen.value = true;
@@ -276,6 +288,12 @@ const closeModal = () => {
   isModalOpen.value = false;
   selectedEducation.value = null;
 };
+
+// Clean up on component unmount
+onUnmounted(() => {
+  toggleBodyScroll(false);
+});
+
 </script>
 
 <style scoped>
