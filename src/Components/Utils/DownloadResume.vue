@@ -15,7 +15,7 @@ export default {
   name: "DownloadResumeButton",
   data() {
     return {
-      resumeLink: "/Stefan_Schutte_Resume.pdf",
+      resumeLink: "/StefanSchutteResume.pdf",
     };
   },
 };
