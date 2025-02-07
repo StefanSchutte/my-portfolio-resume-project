@@ -1,7 +1,9 @@
 <template>
   <AboutMeSection/>
   <Loader :show="isLoading" />
-  <h2 id="skills" v-show="!isLoading">SKILLS</h2>
+  <div class="header-section" v-show="!isLoading">
+    <h2 id="skills">SKILLS</h2>
+  </div>
   <div class="skills-container">
   <ul class="skills-grid" v-show="!isLoading">
     <li v-for="skill in skills" :key="skill.name">
@@ -71,21 +73,44 @@ onMounted(async () => {
 });
 </script>
 
-<style>
-/* Styles the skills heading. Sets the font size to 5% of the viewport height.
- Uses flexbox for layout. Centers the content horizontally. Adds padding around the element.*/
+<style scoped>
+.header-section {
+  position: relative;
+  padding: 2rem 1rem;
+  background: linear-gradient(to right, #1a1a1a, #2d2d2d);
+  border-radius: 20px;
+  margin: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
 #skills {
   font-family: "Oswald", sans-serif;
-  font-size: 5vh;
+  font-size: 2rem;
   display: flex;
   justify-content: center;
-  padding: 3%;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+#skills::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: #059669;
+  border-radius: 2px;
 }
 
 /* Styles the unordered list. Removes the default list style. Centers the text. */
 ul {
   list-style-type: none;
   text-align: center;
+  margin-top: 1rem;
 }
 
 /* Styles each list item. Adds margin below each list item. */

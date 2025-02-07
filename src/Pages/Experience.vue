@@ -552,6 +552,12 @@ onUnmounted(() => {
   margin-bottom: 2rem;
 }
 
+.modal-body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .modal-body h4 {
   color: #ffffff;
   font-size: 1.25rem;

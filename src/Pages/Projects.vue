@@ -307,7 +307,7 @@ h4 {
   flex: 0 0 auto;
   width: 100%;
   max-width: 450px;
-  background-color: #292626;
+  background-color: #1f2937;
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -424,7 +424,6 @@ h4 {
 
 .overlay-content {
   position: relative;
-
   color: #ffffff;
   background: #1f2937;
   padding: 2.5rem;
@@ -493,7 +492,7 @@ h4 {
 
 .overlay h3 {
   color: #ffffff;
-  font-size: 2.25rem;
+  font-size: 2rem;
   margin: 0;
   font-weight: 600;
   text-align: center;
@@ -539,7 +538,7 @@ h4 {
 }
 
 .grid-item {
-  background-color: #292626;
+  background-color: #1f2937;
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
@@ -557,7 +556,7 @@ h4 {
 }
 
 .grid-title {
-  color: #b84d4d;
+  color: #ffffff;
   text-align: center;
   padding: 1rem;
   margin: 0;

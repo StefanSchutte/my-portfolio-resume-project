@@ -1,26 +1,16 @@
 <template>
   <div class="loader-overlay" v-if="show">
-    <div class="loader"></div>
+    <Hourglass class="loader" :size="58"/>
   </div>
 </template>
 
-<script>
-import { defineComponent } from "vue";
+<script setup>
+import { Hourglass } from 'lucide-vue-next';
 
-/**
- * Loader Component
- * Reusable loader animation overlay.
- *
- * Props:
- * - `show` (Boolean): Determines whether the loader is visible.
- */
-export default defineComponent({
-  name: "Loader",
-  props: {
-    show: {
-      type: Boolean,
-      required: true,
-    },
+defineProps({
+  show: {
+    type: Boolean,
+    required: true,
   },
 });
 </script>
@@ -40,12 +30,8 @@ export default defineComponent({
 }
 
 .loader {
-  border: 8px solid #8f8c8c;
-  border-top: 8px solid #075c07;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s linear infinite;
+  color: #059669;
+  animation: spin 2s linear infinite;
 }
 
 @keyframes spin {
