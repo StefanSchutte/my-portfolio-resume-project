@@ -129,7 +129,7 @@ const experiences = ref([
 
   {
     date: "June 2021 - July 2023",
-    title: "Teacher",
+    title: "English Teacher",
     place: "Talking Club Academy",
     description: "English elementary school students teacher. \n" +
         "Rigid syllabus. \n" +
@@ -154,7 +154,7 @@ const experiences = ref([
 
   {
     date: "October 2018 - October 2019",
-    title: "Teacher",
+    title: "English Teacher",
     place: "EBY Talking Cub",
     description: "English teacher for elementary, middle school and adult students. \n" +
         "Teaching. \n" +
