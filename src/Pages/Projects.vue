@@ -131,6 +131,13 @@ const isCarouselView = ref(true);
 /** @type {import('vue').Ref<Project[]>} */
 const projects = ref([
   {
+    title: 'Shopping List',
+    image: 'projects-shoppinglist.png',
+    githubLink: 'https://github.com/StefanSchutte/shopping-list-next',
+    netlifyLink: 'https://shopping-list-next-woad.vercel.app/',
+    description: 'A modern, full-stack shopping list application built with Next.js, Supabase, and Tailwind CSS. The app features user authentication, real-time updates, and a clean, intuitive interface for managing shopping lists.'
+  },
+  {
     title: 'Vercel Gemini Chatbot',
     image: 'projects-vercelgemini.png',
     githubLink: 'https://github.com/StefanSchutte/gemini-ai-chatbot',
