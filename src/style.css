@@ -4,11 +4,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@600&display=swap');
+
+:root {
+  /* Light theme variables */
+  --background-color: #ffffff;
+  --text-color: #000000;
+}
+
+:root.dark-mode {
+  /* Dark theme variables */
+  --background-color: #000000;
+  --text-color: #ffffff;
+}
+
 body {
-  background-color: black;
-  color: white;
+  background-color: var(--background-color);
+  color: var(--text-color);
   font-family: "Mukta", sans-serif;
   font-size: medium;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 * {

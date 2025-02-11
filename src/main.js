@@ -17,6 +17,7 @@ import PaintClone from "./Components/Tools/PaintClone.vue";
 import PongGame from "./Components/Tools/PongGame.vue";
 import Calculator from "./Components/Tools/Calculator.vue";
 import ScrollView from "./Components/ScrollView/ScrollView.vue";
+import { useThemeStore } from './stores/themeStore'
 
 const routes = [
     { path: '/', redirect: '/home' },
@@ -58,6 +59,9 @@ const router = createRouter({
     history: createWebHistory(),
     routes,
 })
+
+const themeStore = useThemeStore()
+themeStore.initTheme()
 
 const app = createApp(App)
 app.use(router)

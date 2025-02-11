@@ -6,8 +6,8 @@
       <router-link to="/projects"><div class="nav-item"><img src="/project.png" alt="Projects" title="Projects"/>Projects</div></router-link>
       <router-link to="/stefan"><div class="nav-item"><img src="/user.png" alt="user" title="Stefan"/>Contact Me</div></router-link>
     </ul>
-    <div class="theme-toggle-container">
-      <ThemeToggle />
+    <div class="settings-position">
+      <SettingsMenu />
     </div>
   </nav>
 </template>
@@ -80,8 +80,7 @@ a {
   color: rgb(5, 5, 5);
 }
 
-/* Styles the container for the theme toggle component */
-.theme-toggle-container {
+.settings-position {
   position: absolute;
   top: 1rem;
   right: 2rem;
@@ -131,8 +130,7 @@ p {
     gap: 0.1rem;
   }
 
-  .theme-toggle-container {
-    position: absolute;
+  .settings-position {
     top: 0.3rem;
     right: 0.3rem;
   }
@@ -141,7 +139,7 @@ p {
 
 </style>
 <script setup lang="ts">
-import ThemeToggle from "../Utils/ThemeToggle.vue";
+import SettingsMenu from "../Settings/SettingsMenu.vue";
 
 /**
  * This is a Vue component representing a navigation bar with links to different sections of the site.
