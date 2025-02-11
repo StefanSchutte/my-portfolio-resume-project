@@ -106,6 +106,10 @@ onMounted(async () => {
   border-radius: 2px;
 }
 
+.skills-container {
+  margin-top: 3rem;
+}
+
 /* Styles the unordered list. Removes the default list style. Centers the text. */
 ul {
   list-style-type: none;

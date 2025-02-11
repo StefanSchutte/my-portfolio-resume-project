@@ -75,8 +75,8 @@ const scrollToSection = (index: number) => {
 }
 
 .nav-item img {
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   margin-bottom: 0.25rem;
   padding: 1px;
 }
@@ -88,12 +88,6 @@ const scrollToSection = (index: number) => {
   border-radius: 5px;
 }
 
-@media only screen and (max-width: 1000px) {
-  .nav-item img {
-    width: 2rem;
-    padding: 3px;
-  }
-}
 
 @media only screen and (max-width: 550px) {
   .scroll-nav {
@@ -107,12 +101,12 @@ const scrollToSection = (index: number) => {
 
   .nav-item {
     font-size: small;
-    margin: 0.3rem;
+    margin: 0.2rem;
     padding: 1px;
   }
 
   .nav-item img {
-    width: 2rem;
+    width: 1.2rem;
     height: auto;
   }
 }
