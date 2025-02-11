@@ -1,5 +1,5 @@
 <template>
-<div class="about-sub-nav-bar">
+<div class="about-sub-nav-bar" v-if="!isScrollView">
   <router-link to="/about"><div class="nav-item"><img src="/information-button.png" alt="About" title="About"/>About</div></router-link>
   <router-link to="/education"><div class="nav-item"><img src="/graduation.png" alt="Education" title="Education"/>Education</div></router-link>
   <router-link to="/experience"><div class="nav-item"><img src="/portfolio.png" alt="Experience" title="Experience"/>Experience</div></router-link>
@@ -20,4 +20,9 @@
 
 </style>
 <script setup lang="ts">
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+const isScrollView = computed(() => route.path === '/scroll');
 </script>

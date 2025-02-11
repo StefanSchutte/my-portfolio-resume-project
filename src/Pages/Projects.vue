@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Tools />
+    <Tools v-if="!isScrollView"/>
     <Loader :show="isLoading" />
     <div class="header-section">
       <h2 id="projects">PROJECTS</h2>
@@ -115,7 +115,7 @@
  * @property {string} description - A brief description of the project.
  */
 
-import {onUnmounted, ref, watch} from 'vue';
+import {computed, onUnmounted, ref, watch} from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -124,6 +124,10 @@ import 'swiper/css/pagination';
 import Tools from "../Components/Nav/Tools.vue";
 import Loader from "../Components/Utils/Loader.vue";
 import { X } from 'lucide-vue-next';
+import {useRoute} from "vue-router";
+
+const route = useRoute();
+const isScrollView = computed(() => route.path === '/scroll');
 
 const isLoading = ref(true);
 const isCarouselView = ref(true);

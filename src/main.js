@@ -16,6 +16,7 @@ import Tools from "./Components/Nav/Tools.vue";
 import PaintClone from "./Components/Tools/PaintClone.vue";
 import PongGame from "./Components/Tools/PongGame.vue";
 import Calculator from "./Components/Tools/Calculator.vue";
+import ScrollView from "./Components/ScrollView/ScrollView.vue";
 
 const routes = [
     { path: '/', redirect: '/home' },
@@ -50,6 +51,7 @@ const routes = [
             { path: 'calculator', component: Calculator },
         ],
     },
+    { path: '/scroll', component: ScrollView },
 ]
 
 const router = createRouter({
@@ -60,9 +62,3 @@ const router = createRouter({
 const app = createApp(App)
 app.use(router)
 app.mount('#app')
-
-// Vue.config.productionTip = false;
-
-// new Vue({
-//     render: h => h(App),
-// }).$mount('#app');
