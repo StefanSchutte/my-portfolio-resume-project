@@ -135,6 +135,13 @@ const isCarouselView = ref(true);
 /** @type {import('vue').Ref<Project[]>} */
 const projects = ref([
   {
+    title: 'Ubuntu Music Player',
+    image: 'projects-ump.png',
+    githubLink: 'https://github.com/StefanSchutte/ubuntu-music-player',
+    netlifyLink: 'https://drive.google.com/file/d/1rLM1722RCQL1XOGfx2pHIvoIR-w28XJu/view?usp=drive_link',
+    description: 'Ubuntu Music Player is an offline, simple and elegant music player built with GTK3 for Linux Ubuntu. It provides a clean interface with essential music playback functionalities.'
+  },
+  {
     title: 'Shopping List',
     image: 'projects-shoppinglist.png',
     githubLink: 'https://github.com/StefanSchutte/shopping-list-next',
