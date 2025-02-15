@@ -86,7 +86,7 @@ const contacts = [
     icon: MessageCircle,
     label: "Send Me a Whatsapp",
     value: "+27 76 531 4027",
-    url: "tel:+27765314027"
+    url: "https://wa.me/27765314027"
   }
 ];
 </script>

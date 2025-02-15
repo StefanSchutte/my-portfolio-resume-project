@@ -64,7 +64,7 @@ const contacts = [
   },
   {
     icon: MessageCircle,
-    url: "tel:+27765314027",
+    url: "https://wa.me/27765314027",
     title: "Whatsapp"
   }
 ];
