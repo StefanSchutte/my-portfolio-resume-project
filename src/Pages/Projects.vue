@@ -142,6 +142,13 @@ const projects = ref([
     description: 'Ubuntu Music Player is an offline, simple and elegant music player built with GTK3 for Linux Ubuntu. It provides a clean interface with essential music playback functionalities.'
   },
   {
+    title: 'Nextron Video Upload App',
+    image: 'projects-nextronVideo.png',
+    githubLink: 'https://github.com/StefanSchutte/nextron-video-upload-app',
+    netlifyLink: 'https://drive.google.com/drive/folders/1p7KFYtpc_dWhm9PtvYIliBH_F_tYJdml',
+    description: 'A video platform feature built with Nextron, Next.js and AWS, allowing users to upload, view, rate, and review video content.'
+  },
+  {
     title: 'Shopping List',
     image: 'projects-shoppinglist.png',
     githubLink: 'https://github.com/StefanSchutte/shopping-list-next',
